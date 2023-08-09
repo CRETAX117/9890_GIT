@@ -25,7 +25,7 @@ int e=30;
 	cuadros(25+d,8-c, 28, 1);
 	cuadros(45, 12-c, 25, 5);
 	cuadros(39,18, 39, 4);
-	
+//hola x	
 	margenes();
 	
 //	gotoxy(10+e, 28); printf("Para iniciar pulse 1: "); scanf("%d", select); fflush(stdin);
