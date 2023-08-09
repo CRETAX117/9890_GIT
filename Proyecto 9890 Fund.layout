@@ -12,7 +12,13 @@ CursorRow=136
 TopLine=1
 LeftChar=1
 [Editor_2]
-CursorCol=19
+<<<<<<< HEAD
+CursorCol=1
 CursorRow=28
-TopLine=4
+TopLine=7
+=======
+CursorCol=3
+CursorRow=34
+TopLine=1
+>>>>>>> a4c4e34d0f64ff9beb37eb8939f528817ce77ca0
 LeftChar=1
