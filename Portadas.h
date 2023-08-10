@@ -7,9 +7,9 @@ presentacion
 void caratula(){
 	int select;
 	
-int c=2;
-int d=20;
-int e=30;
+	int c=2;
+	int d=20;
+	int e=30;
 	
 	gotoxy(20+d, 5-c); printf("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE");
 	gotoxy(26+d, 9-c); printf("Electr%cnica y Automatizacion", 162);

@@ -1,6 +1,6 @@
 [Editors]
-Order=0,1,2
-Focused=2
+Order=0,1,2,3,4
+Focused=4
 [Editor_0]
 CursorCol=3
 CursorRow=4
@@ -13,12 +13,22 @@ TopLine=1
 LeftChar=1
 [Editor_2]
 <<<<<<< HEAD
-CursorCol=9
-CursorRow=28
-TopLine=7
+CursorCol=2
+CursorRow=12
+TopLine=2
 =======
 CursorCol=3
 CursorRow=34
 TopLine=1
 >>>>>>> a4c4e34d0f64ff9beb37eb8939f528817ce77ca0
+LeftChar=1
+[Editor_3]
+CursorCol=36
+CursorRow=2
+TopLine=1
+LeftChar=1
+[Editor_4]
+CursorCol=3
+CursorRow=3
+TopLine=1
 LeftChar=1
