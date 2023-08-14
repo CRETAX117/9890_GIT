@@ -2,6 +2,10 @@
 Libreria de Funciones y estructuras
 -Colocar aqui las funciones principales
 */
+#include <iostream>
+#include <conio.h>
+#include <string.h>
+#include <windows.h>
 #define MAX_L 100
 
 struct fecha_G{
@@ -40,10 +44,10 @@ struct docente{
 	struct persona data_teacher;
 	struct usuario user_teahcer;
 	struct materia asg_teacher;
-}:
+};
 	
 struct estudiante{
-	struct persona
+	struct persona;
 };
 
 
