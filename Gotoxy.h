@@ -6,7 +6,7 @@ Colocar aqui las funciones graficas
 #include <windows.h>
 #define MAX_L 100		//Maximo de caracteres en una cadena
 #define MAX_X 120		//Maximo de pantalla horizontal (inicia en 0)
-#define MAX_Y 30		//Maximo de pantala vertical (inicia en 0)
+#define MAX_Y 29		//Maximo de pantala vertical (inicia en 0)
 
 //Funciones graficas
 
