@@ -2,6 +2,6 @@
 #include "Menu.h"
 
 int main(int argc, char** argv) {
-	caratula();
+	caratula1();
 	return 0;
 }

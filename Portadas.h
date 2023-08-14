@@ -26,64 +26,34 @@ puts(c);
 setColor(White, Black);
 */
 
-void caratula(){
-	char mensaje[MAX_L] = {"Pulse cualquier tecla para continuar"};
-	char universidad[MAX_L] = {"UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE"};
-	char materia[MAX_L] = {"FUNDAMENTOS DE LA PROGRAMACI%cN"};
-	char titulo[MAX_L] = {"PROYECTO FINAL"};
-	
-	int a, b;
-	
-	margenes();
-	centrarTexto(universidad, 3);
-	centrarTexto(materia, 5);
-	centrarTexto(titulo, 7);
-	
-	for(int i=40;i < 76+3; i++){
-    	gotoxy(i,27); printf("%c",177);
-	}
-	for(int i=40;i < 76+3; i++){
-    	gotoxy(i,27); printf("%c",219);
-    	Sleep(52);
-	}
-	centrarTexto(mensaje, 29); getch();
+void caratula1() {
+    system("cls");
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(10, 4, 110, 6);
+    centrarTexto("FUNDAMENTOS DE PROGRAMACION", 5);
+
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    //system("COLOR F9");
+    lineasHV(15, 7, 105, 12);
+    centrarTexto("-------------------INTEGRANTES-------------------", 8);
+    centrarTexto("BRANDON CARDENAS", 9);
+    centrarTexto("JOSUE CHIRIBOGA", 10);
+    centrarTexto("STEVEN VALDIVIESO", 11);
+
+    letras();
+
+    centrarTexto("CARGANDO BASE DE DATOS...", 23);
+    carga(25, 30);
+    gotoxy(4, 21);
+    printf("                                                        ");
+    gotoxy(4, 21);
+    centrarTexto("BIENVENIDO: PRESIONA ENTER PARA CONTINUAR", 23);
+    getch();
 }
 
-void caratula1(){
-	char mensaje[MAX_L] = {"Pulse cualquier tecla para continuar"};
-	int select;	
-	int c=2;
-	int d=20;
-	int e=30;
-	
-	margenes();
-	ocultarCursor();
-	gotoxy(20+d, 5-c); printf("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE");
-	gotoxy(26+d, 9-c); printf("Electr%cnica y Automatizacion", 162);
-	
-	espe();
-	
-	gotoxy(10+e, 21-c); printf("Materia: Fundamentos de la Programaci%cn", 162);
-	gotoxy(10+e, 22-c); printf("Tema: Uso de Git y Github");
-	gotoxy(10+e, 23-c); printf("Integrantes:");
-	gotoxy(10+e, 24-c); printf("C%crdenas Brandon", 160);
-	gotoxy(10+e, 25-c); printf("Valdivieso Steven");
-	gotoxy(10+e, 26-c); printf("Chiriboga Josue");
-	gotoxy(10+e, 27-c); printf("NRC: 9890");
-	
-	cuadros1(19+d, 4-c, 39, 1);
-	cuadros1(25+d,8-c, 28, 1);
-	cuadros1(46, 12-c, 25, 5);
-	cuadros1(39,18, 39, 6);
-	
-	
-//	gotoxy(10+e, 28); printf("Para iniciar pulse 1: "); scanf("%d", select); fflush(stdin);
-    for(int i=40;i < 76+3; i++){
-    	gotoxy(i,27); printf("%c",177);
-	}
-	for(int i=40;i < 76+3; i++){
-    	gotoxy(i,27); printf("%c",219);
-    	Sleep(52);
-	}
-	centrarTexto(mensaje, 29); getch();
-}
+
+

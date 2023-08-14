@@ -116,6 +116,22 @@ void cuadros2(int x, int y, int m, int n) {
     printf("%c", 217);
 }
 
+void lineasHV(int cs, int fs, int ci, int fi) {
+    int i;
+    for (i = cs; i <= ci; i++) {
+        gotoxy(i, fs); printf("%c", 205);
+        gotoxy(i, fi); printf("%c", 205);
+    }
+    for (i = fs; i <= fi; i++) {
+        gotoxy(cs, i); printf("%c", 186);
+        gotoxy(ci, i); printf("%c", 186);
+    }
+    gotoxy(cs, fs); printf("%c", 201);
+    gotoxy(ci, fi); printf("%c", 188);
+    gotoxy(ci, fs); printf("%c", 187);
+    gotoxy(cs, fi); printf("%c", 200);
+}
+
 void centrarTexto(char* texto, int f) {
     int longitud = strlen(texto);
     gotoxy(60 - (longitud / 2), f);
@@ -123,10 +139,10 @@ void centrarTexto(char* texto, int f) {
 }
 
 void carga(int alt, int tim){
-	for(int i=40;i < 76+3; i++){
+	for(int i=4;i < 116; i++){
     	gotoxy(i,alt); printf("%c",177);
 	}
-	for(int i=40;i < 76+3; i++){
+	for(int i=4;i < 116; i++){
     	gotoxy(i,alt); printf("%c",219);
     	Sleep(tim);
 	}
@@ -169,49 +185,57 @@ void erase(int xi, int yi, int xf, int yf){
 }
 
 //Funcion de letras
-void espe(){
-	int a=41;
-	int b=2;
-	
-	// Imprimir la letra E
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY);	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY);
-	
-	gotoxy(7+a, 9+b); printf("|||||");
-    gotoxy(7+a, 10+b); printf("||");
-    gotoxy(7+a, 11+b); printf("|||||");
-    gotoxy(7+a, 12+b); printf("||");
-    gotoxy(7+a, 13+b); printf("|||||");
-    
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-                                     
-    // Imprimir la letra S       
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);                              
-    
-	gotoxy(13+a, 9+b); printf("|||||");
-    gotoxy(13+a, 10+b); printf("||");
-    gotoxy(13+a, 11+b); printf("|||||");
-    gotoxy(13+a, 12+b); printf("   ||");
-    gotoxy(13+a, 13+b); printf("|||||");
+void letras() {
+    int centroX = 60; // Coordenada X del centro
+    int inicioY = 16; // Coordenada Y de inicio
 
-    // Imprimir la letra P
-    gotoxy(19+a, 9+b); printf("|||||");
-    gotoxy(19+a, 10+b); printf("|| ||");
-    gotoxy(19+a, 11+b); printf("|||||");
-    gotoxy(19+a, 12+b); printf("||");
-    gotoxy(19+a, 13+b); printf("||");
-    
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY);	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY);
+    // Calcular el ancho total de las letras (E + S + P + E)
+    int anchoTotal = 5 + 7 + 7 + 5; // Suma de los anchos de cada letra y espacios
+
+    // Calcular la coordenada X de inicio para que las letras estén centradas
+    int inicioX = centroX - (anchoTotal / 2);
 
     // Imprimir la letra E
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-    
-    gotoxy(25+a, 9+b); printf("|||||");
-    gotoxy(25+a, 10+b); printf("||");
-    gotoxy(25+a, 11+b); printf("|||||");
-    gotoxy(25+a, 12+b); printf("||");
-    gotoxy(25+a, 13+b); printf("|||||");
-    
-     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY);	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	setColor(2, 0);
+    gotoxy(inicioX, inicioY); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+    gotoxy(inicioX, inicioY + 1); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 2); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+    gotoxy(inicioX, inicioY + 3); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 4); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+
+    // Espacio entre letras
+    inicioX += 5 + 2; // Ancho de letra + espacio
+
+    // Imprimir la letra S
+
+    gotoxy(inicioX, inicioY); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+    gotoxy(inicioX, inicioY + 1); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 2); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+    gotoxy(inicioX, inicioY + 3); printf("    %c", 219);
+    gotoxy(inicioX, inicioY + 4); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+
+    // Espacio entre letras
+    inicioX += 5 + 2; // Ancho de letra + espacio
+
+    // Imprimir la letra P
+
+    gotoxy(inicioX, inicioY); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+    gotoxy(inicioX, inicioY + 1); printf("%c   %c", 219, 219);
+    gotoxy(inicioX, inicioY + 2); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+    gotoxy(inicioX, inicioY + 3); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 4); printf("%c", 219);
+
+    // Espacio entre letras
+    inicioX += 5 + 2; // Ancho de letra + espacio
+
+    // Imprimir la letra E
+
+    gotoxy(inicioX, inicioY); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+    gotoxy(inicioX, inicioY + 1); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 2); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+    gotoxy(inicioX, inicioY + 3); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 4); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
+    setColor(7, 0);
 }
 
 //_____________________________________________________________________________________
