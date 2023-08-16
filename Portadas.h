@@ -45,7 +45,7 @@ void caratula1(){
     centrarTexto("JOSUE CHIRIBOGA", 10);
     centrarTexto("STEVEN VALDIVIESO", 11);
 
-    letras();
+    espe(16);
 
     centrarTexto("CARGANDO BASE DE DATOS...", 23);
     carga(25, 30);
@@ -56,5 +56,14 @@ void caratula1(){
     getch();
 }
 
+void inicioSesion(){
+	char titulo[MAX_L] = {"UNIVERSIDAD DE LAS FUERZAS ARMADAS"};
+//	CLS(0);
+	margenes();
+	ocultarCursor();
+	cuadros1(41, 2, 36, 1);
+	centrarTexto(titulo, 3);
+	espe(5);
+}
 
 

@@ -185,9 +185,9 @@ void erase(int xi, int yi, int xf, int yf){
 }
 
 //Funcion de letras
-void letras() {
+void espe(int inicioY) {
     int centroX = 60; // Coordenada X del centro
-    int inicioY = 16; // Coordenada Y de inicio
+//    int inicioY = 16; // Coordenada Y de inicio
 
     // Calcular el ancho total de las letras (E + S + P + E)
     int anchoTotal = 5 + 7 + 7 + 5; // Suma de los anchos de cada letra y espacios

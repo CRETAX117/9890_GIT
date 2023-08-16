@@ -2,6 +2,7 @@
 #include "Menu.h"
 
 int main(int argc, char** argv) {
-	caratula1();
+//	caratula1();
+	inicioSesion();
 	return 0;
 }
