@@ -185,7 +185,7 @@ void erase(int xi, int yi, int xf, int yf){
 }
 
 //Funcion de letras
-void espe(int inicioY) {
+void espe1(int inicioY) {
     int centroX = 60; // Coordenada X del centro
 //    int inicioY = 16; // Coordenada Y de inicio
 
@@ -198,9 +198,9 @@ void espe(int inicioY) {
     // Imprimir la letra E
 	setColor(2, 0);
     gotoxy(inicioX, inicioY); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
-    gotoxy(inicioX, inicioY + 1); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 1); printf("%c%c", 219, 219);
     gotoxy(inicioX, inicioY + 2); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
-    gotoxy(inicioX, inicioY + 3); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 3); printf("%c%c", 219, 219);
     gotoxy(inicioX, inicioY + 4); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
 
     // Espacio entre letras
@@ -209,9 +209,9 @@ void espe(int inicioY) {
     // Imprimir la letra S
 
     gotoxy(inicioX, inicioY); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
-    gotoxy(inicioX, inicioY + 1); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 1); printf("%c%c", 219, 219);
     gotoxy(inicioX, inicioY + 2); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
-    gotoxy(inicioX, inicioY + 3); printf("    %c", 219);
+    gotoxy(inicioX, inicioY + 3); printf("   %c%c", 219, 219);
     gotoxy(inicioX, inicioY + 4); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
 
     // Espacio entre letras
@@ -220,10 +220,10 @@ void espe(int inicioY) {
     // Imprimir la letra P
 
     gotoxy(inicioX, inicioY); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
-    gotoxy(inicioX, inicioY + 1); printf("%c   %c", 219, 219);
+    gotoxy(inicioX, inicioY + 1); printf("%c%c  %c", 219, 219, 219);
     gotoxy(inicioX, inicioY + 2); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
-    gotoxy(inicioX, inicioY + 3); printf("%c", 219);
-    gotoxy(inicioX, inicioY + 4); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 3); printf("%c%c", 219, 219);
+    gotoxy(inicioX, inicioY + 4); printf("%c%c", 219, 219);
 
     // Espacio entre letras
     inicioX += 5 + 2; // Ancho de letra + espacio
@@ -231,11 +231,54 @@ void espe(int inicioY) {
     // Imprimir la letra E
 
     gotoxy(inicioX, inicioY); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
-    gotoxy(inicioX, inicioY + 1); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 1); printf("%c%c", 219, 219);
     gotoxy(inicioX, inicioY + 2); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
-    gotoxy(inicioX, inicioY + 3); printf("%c", 219);
+    gotoxy(inicioX, inicioY + 3); printf("%c%c", 219, 219);
     gotoxy(inicioX, inicioY + 4); printf("%c%c%c%c%c", 219, 219, 219, 219, 219);
     setColor(7, 0);
+}
+
+void espe2(int b){
+	int a=41;
+	
+	// Imprimir la letra E
+	setColor(4, 0);
+		
+	gotoxy(7+a, 0+b); printf("|||||");
+    gotoxy(7+a, 1+b); printf("||");
+    gotoxy(7+a, 2+b); printf("|||||");
+    gotoxy(7+a, 3+b); printf("||");
+    gotoxy(7+a, 4+b); printf("|||||");
+    
+	setColor(6, 0);
+                                     
+    // Imprimir la letra S       
+    
+	gotoxy(13+a, 0+b); printf("|||||");
+    gotoxy(13+a, 1+b); printf("||");
+    gotoxy(13+a, 2+b); printf("|||||");
+    gotoxy(13+a, 3+b); printf("   ||");
+    gotoxy(13+a, 4+b); printf("|||||");
+
+    // Imprimir la letra P
+    gotoxy(19+a, 0+b); printf("|||||");
+    gotoxy(19+a, 1+b); printf("|| ||");
+    gotoxy(19+a, 2+b); printf("|||||");
+    gotoxy(19+a, 3+b); printf("||");
+    gotoxy(19+a, 4+b); printf("||");
+    
+	setColor(2, 0);
+
+    // Imprimir la letra E
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+    
+    gotoxy(25+a, 0+b); printf("|||||");
+    gotoxy(25+a, 1+b); printf("||");
+    gotoxy(25+a, 2+b); printf("|||||");
+    gotoxy(25+a, 3+b); printf("||");
+    gotoxy(25+a, 4+b); printf("|||||");
+    
+	setColor(7, 0);
 }
 
 //_____________________________________________________________________________________

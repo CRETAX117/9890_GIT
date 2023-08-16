@@ -7,15 +7,15 @@ CursorRow=6
 TopLine=1
 LeftChar=1
 [Editor_1]
-CursorCol=11
-CursorRow=190
-TopLine=178
+CursorCol=67
+CursorRow=170
+TopLine=155
 LeftChar=1
 [Editor_2]
 <<<<<<< HEAD
-CursorCol=10
-CursorRow=66
-TopLine=45
+CursorCol=46
+CursorRow=74
+TopLine=52
 =======
 CursorCol=3
 CursorRow=34
@@ -25,10 +25,10 @@ LeftChar=1
 [Editor_3]
 CursorCol=18
 CursorRow=9
-TopLine=7
+TopLine=30
 LeftChar=1
 [Editor_4]
 CursorCol=13
 CursorRow=129
-TopLine=25
+TopLine=34
 LeftChar=1

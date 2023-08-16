@@ -45,7 +45,7 @@ void caratula1(){
     centrarTexto("JOSUE CHIRIBOGA", 10);
     centrarTexto("STEVEN VALDIVIESO", 11);
 
-    espe(16);
+    espe1(16);
 
     centrarTexto("CARGANDO BASE DE DATOS...", 23);
     carga(25, 30);
@@ -56,6 +56,11 @@ void caratula1(){
     getch();
 }
 
+char iniciar[MAX_L] = {"INICIAR SESION"};
+char registrar[MAX_L] = {"REGISTRARSE"};
+char usuario[MAX_L];
+char contra[MAX_L];
+
 void inicioSesion(){
 	char titulo[MAX_L] = {"UNIVERSIDAD DE LAS FUERZAS ARMADAS"};
 //	CLS(0);
@@ -63,7 +68,11 @@ void inicioSesion(){
 	ocultarCursor();
 	cuadros1(41, 2, 36, 1);
 	centrarTexto(titulo, 3);
-	espe(5);
+	espe1(6);
+	gotoxy(25, 13); printf("USUARIO:");
+	cuadros2(25, 14, 70, 1); 
+	gotoxy(25, 18); printf("CONTRASE%cA:", 165);
+	cuadros2(25, 19, 70, 1);
 }
 
 
