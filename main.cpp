@@ -3,7 +3,6 @@
 
 int main(int argc, char** argv) {
 //	caratula1();
-	inicioSesion();
-//	initSelect_Inicio();
+	initSelect_Inicio();
 	return 0;
 }

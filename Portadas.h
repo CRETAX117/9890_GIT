@@ -48,7 +48,7 @@ void caratula1(){
     espe1(16);
 
     centrarTexto("CARGANDO BASE DE DATOS...", 23);
-    carga(25, 30);
+    carga(4, 25, 30, 116);
     gotoxy(4, 21);
     printf("                                                        ");
     gotoxy(4, 21);
@@ -74,7 +74,7 @@ void inicioSesion(){
 	cuadros1(25, 23, 28, 3);
 	cuadros1(67, 23, 28, 3);
 	gotoxy(34, 25); printf("REGISTRARSE");
-	gotoxy(76, 25); printf("INICIAR SESION");
+	gotoxy(75, 25); printf("INICIAR SESION");
 	
 	getch();
 	

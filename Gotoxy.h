@@ -3,10 +3,13 @@ Libreria Gotoxy
 Colocar aqui las funciones graficas
 */
 
+#include <iostream>
 #include <windows.h>
 #define MAX_L 100		//Maximo de caracteres en una cadena
 #define MAX_X 120		//Maximo de pantalla horizontal (inicia en 0)
 #define MAX_Y 29		//Maximo de pantala vertical (inicia en 0)
+
+using namespace std;
 
 //Funciones graficas
 
@@ -138,11 +141,11 @@ void centrarTexto(char* texto, int f) {
     printf(texto);
 }
 
-void carga(int alt, int tim){
-	for(int i=4;i < 116; i++){
+void carga(int xi, int xf, int alt, int tim){
+	for(int i=xi;i < xf; i++){
     	gotoxy(i,alt); printf("%c",177);
 	}
-	for(int i=4;i < 116; i++){
+	for(int i=xi;i < xf; i++){
     	gotoxy(i,alt); printf("%c",219);
     	Sleep(tim);
 	}
@@ -173,7 +176,7 @@ void setColor(int textColor, int bgColor) {
 void exitit(){
 	char salida[] = {"CERRANDO SESION"};
 	centrarTexto(salida, 13);
-	carga(14, 10);
+	carga(29, 92, 14, 17);
 }
 
 void erase(int xi, int yi, int xf, int yf){
