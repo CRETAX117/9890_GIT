@@ -8,7 +8,7 @@ Se estructurara el menu funcional
 #include "Portadas.h"
 #include "Funciones.h"
 
-void initSelect(){
+void initSelect_Inicio(){
 	RETORNO:
 	CLS(0);
 	ocultarCursor();

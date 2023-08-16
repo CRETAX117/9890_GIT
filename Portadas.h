@@ -56,12 +56,9 @@ void caratula1(){
     getch();
 }
 
-char iniciar[MAX_L] = {"INICIAR SESION"};
-char registrar[MAX_L] = {"REGISTRARSE"};
-char usuario[MAX_L];
-char contra[MAX_L];
-
 void inicioSesion(){
+	char usuario[MAX_L];
+	char contra[MAX_L];
 	char titulo[MAX_L] = {"UNIVERSIDAD DE LAS FUERZAS ARMADAS"};
 //	CLS(0);
 	margenes();
@@ -73,6 +70,14 @@ void inicioSesion(){
 	cuadros2(25, 14, 70, 1); 
 	gotoxy(25, 18); printf("CONTRASE%cA:", 165);
 	cuadros2(25, 19, 70, 1);
+	
+	cuadros1(25, 23, 28, 3);
+	cuadros1(67, 23, 28, 3);
+	gotoxy(34, 25); printf("REGISTRARSE");
+	gotoxy(76, 25); printf("INICIAR SESION");
+	
+	getch();
+	
 }
 
 
