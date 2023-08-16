@@ -77,5 +77,56 @@ void inicioSesion(){
 	gotoxy(75, 25); printf("INICIAR SESION");
 	
 	getch();
-	
 }
+
+void Materia_Docentes() {
+    system("cls");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(30, 4, 90, 6);
+    centrarTexto("MATERIAS - DOCENTE", 5);
+
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    //system("COLOR F9");
+    lineasHV(5, 8, 50, 10);
+    gotoxy(7, 9); printf("1.- FUNDAMENTOS DE PROGRAMACION", 9);
+    
+    lineasHV(5, 12, 50, 14);
+    gotoxy(7, 13); printf("2.- PROGRAMACION ORIENTADA A OBJETOS", 13);
+    
+    lineasHV(5, 16, 50, 18);
+    gotoxy(7, 17); printf("3.- ESTRUCTURA DE DATOS", 17);
+    
+    lineasHV(40, 22, 80, 24);
+    centrarTexto("Pulse la tecla ESC para regresar", 23);
+    
+}	
+
+void Menu_Docente() {
+    system("cls");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(30, 4, 90, 6);
+    centrarTexto("MENU - DOCENTE", 5);
+
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    //system("COLOR F9");
+    lineasHV(5, 8, 50, 10);
+    gotoxy(7, 9); printf("1.- MODIFICAR DOCENTE", 9);
+    
+    lineasHV(5, 12, 50, 14);
+    gotoxy(7, 13); printf("2.- MOSTRAR DATOS DEL ALUMNO", 13);
+    
+    lineasHV(5, 16, 50, 18);
+    gotoxy(7, 17); printf("3.- MOSTRAR TODOS LOS DATOS DE ALUMNOS", 17);
+
+}
+	
