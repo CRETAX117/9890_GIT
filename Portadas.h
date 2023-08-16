@@ -79,6 +79,77 @@ void inicioSesion(){
 	getch();
 	
 }
+//REGISTRO GENERAL 
+void Registro_General() {
+    system("cls");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
 
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(30, 4, 90, 6);
+    centrarTexto("REGISTRO GENERAL ", 5);
+
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    //system("COLOR F9");
+    lineasHV(5, 8, 50, 10);
+    gotoxy(7, 9); printf("1.- ESTUDIANTES", 9);
+    
+    lineasHV(5, 12, 50, 14);
+    gotoxy(7, 13); printf("2.- DOCENTES", 13);
+    
+    lineasHV(5, 16, 50, 18);
+    gotoxy(7, 17); printf("3.- SALIR", 17);
+
+}
+//MENU ESTUDIANTES
+void Menu_Estudiantes() {
+    system("cls");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(30, 4, 90, 6);
+    centrarTexto("MENU - ESTUDIANTE", 5);
+
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    //system("COLOR F9");
+    lineasHV(5, 8, 50, 10);
+    gotoxy(7, 9); printf("1.- MODIFICAR ESTUDIANTE", 9);
+    
+    lineasHV(5, 12, 50, 14);
+    gotoxy(7, 13); printf("2.- MATERIAS DEL ESTUDIANTE", 13);
+    
+}
+//MATERIAS ESTUDIANTE
+void Materias_Estudiantes() {
+    system("cls");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(30, 4, 90, 6);
+    centrarTexto("MATERIAS ALUMNO ", 5);
+
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    //system("COLOR F9");
+    lineasHV(5, 8, 50, 10);
+    gotoxy(7, 9); printf("1.- FUNDAMENTOS DE PRGRAMACION", 9);
+    
+    lineasHV(5, 12, 50, 14);
+    gotoxy(7, 13); printf("2.-PROGRAMACION ORIENTADA A OBJETOS", 13);
+    
+    lineasHV(5, 16, 50, 18);
+    gotoxy(7, 17); printf("3.- ESTRUCTURA DE DATOS ", 17);
+
+	lineasHV(40, 22, 80, 24);
+	centrarTexto("Pulse la tecla ESC para regresar",23 );
+    
+}
 
 
