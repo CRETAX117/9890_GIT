@@ -9,8 +9,10 @@ Se estructurara el menu funcional
 #include "Funciones.h"
 
 void initSelect_Inicio(){
-	RETORNO:
+	char usuario[MAX_L];
+	char contra[MAX_L];
 	CLS(0);
+	inicioSesion();
 	ocultarCursor();
 	int a = 8;
 	char in, sec;
@@ -19,10 +21,8 @@ void initSelect_Inicio(){
 	while(true){
 		in = getch();
 		if(in == UP || in == DOWN || in == LEFT || in == RIGHT){
-			setColor(Black, White);
-			cuadros1(16, 6, 28,5); 
-			setColor(White, Black);
 			x=0;
+			RETORNO:
 			break;
 		}		
 	}
@@ -30,13 +30,13 @@ void initSelect_Inicio(){
 	while(true){
 		in=getch();
 		if(in==UP){					//Acciones flecha arriba
-			if((x>=0 && x<6)){
+			if((x>=0 && x<4)){
 				x--;
 			}else{
-				x=5;
+				x=3;
 			}
 		}else if(in==DOWN){			//Acciones flecha abajo
-			if((x>=0 && x<6)){
+			if((x>=0 && x<4)){
 				x++;
 			}else{
 				x=0;
@@ -44,97 +44,51 @@ void initSelect_Inicio(){
 				
 		}else if(in==LEFT){			//Acciones flecha izquierda
 			if(x==3){
-				x=0;
-			}else if(x==4){
-				x=1;
-			}else if(x==5){
 				x=2;
 			}
 		}else if(in==RIGHT){		//Acciones flecha derecha
-			if(x==0){
+			if(x==2){
 				x=3;
-			}else if(x==1){
-				x=4;
-			}else if(x==2){
-				x=5;
 			}
 		}else if(in==ENTER){		//Acciones tecla ENTER
 			if(x==0){					//Funcion 0
-				CLS(0);
-//				ACCION
-				NO_RETURN:
-				sec = getch();
-				if(sec==ESCAPE){
-					x=0;
-				}else{
-					Sleep(1);
-					goto NO_RETURN;
-				}
+				mostrarCursor();
+				setColor(White, Black);
+				cuadros2(25, 14, 70, 1);
+				gotoxy(27, 15); cin.getline(usuario, 60, '\n'); 
+				ocultarCursor();
+				x=0;
+				goto RETORNO;
 				break;
 				
 			}else if(x==1){				//Funcion 1
-				CLS(0);
-//				ACCION
-				sec = getch();
-				if(sec==ESCAPE){
-					x=0;
-					goto RETORNO;
-				}else{	
-					Sleep(1);
-					goto NO_RETURN;
-				}
+				mostrarCursor();
+				setColor(White, Black);
+				cuadros2(25, 19, 70, 1);
+				gotoxy(27, 20); cin.getline(contra, 60, '\n'); 
+				ocultarCursor();
+				x=1;
+				goto RETORNO;
 				break;
 				
 			}else if(x==2){				//Funcion 2
 				CLS(0);
-//				ACCION
-				sec = getch();
-				if(sec==ESCAPE){
-					x=0;
-					goto RETORNO;
-				}else{
-					Sleep(1);
-					goto NO_RETURN;
-				}
+
 				break;
 				
 			}else if(x==3){				//Funcion 3
 				CLS(0);
-//				ACCION
-				sec = getch();
-				if(sec==ESCAPE){
-					x=0;
-					goto RETORNO;
-				}else{
-					Sleep(1);
-					goto NO_RETURN;
-				}
+
 				break;
 				
 			}else if(x==4){				//Funcio 4
 				CLS(0);
-//				ACCION
-				sec = getch();
-				if(sec==ESCAPE){
-					x=0;
-					goto RETORNO;
-				}else{
-					Sleep(1);
-					goto NO_RETURN;
-				}
+
 				break;
 				
 			}else if(x==5){				//Funcion 5
 				CLS(0);
-//				ACCION
-				sec = getch();
-				if(sec==ESCAPE){
-					x=0;
-					goto RETORNO;
-				}else{
-					Sleep(1);
-					goto NO_RETURN;
-				}
+
 				break;
 				
 			}
@@ -149,22 +103,36 @@ void initSelect_Inicio(){
 		
 		switch(x){
 			case 0:
-				//SELECCION
+				setColor(Black, White);
+				cuadros2(25, 14, 70, 1);
+				setColor(White, Black);
+				cuadros2(25, 19, 70, 1);
+				cuadros1(25, 23, 28, 3);
+				cuadros1(67, 23, 28, 3);
 				break;
 			case 1:
-				//SELECCION
+				cuadros2(25, 14, 70, 1);
+				setColor(Black, White);
+				cuadros2(25, 19, 70, 1);
+				setColor(White, Black);
+				cuadros1(25, 23, 28, 3);
+				cuadros1(67, 23, 28, 3);
 				break;
 			case 2:
-				//SELECCION
+				cuadros2(25, 14, 70, 1);
+				cuadros2(25, 19, 70, 1);
+				setColor(Black, White);
+				cuadros1(25, 23, 28, 3);
+				setColor(White, Black);
+				cuadros1(67, 23, 28, 3);
 				break;
 			case 3:
-				//SELECCION
-				break;
-			case 4:
-				//SELECCION
-				break;
-			case 5:
-				//SELECCION
+				cuadros2(25, 14, 70, 1);
+				cuadros2(25, 19, 70, 1);
+				cuadros1(25, 23, 28, 3);
+				setColor(Black, White);
+				cuadros1(67, 23, 28, 3);
+				setColor(White, Black);
 				break;
 		}
 	}
