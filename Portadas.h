@@ -26,8 +26,9 @@ puts(c);
 setColor(White, Black);
 */
 
-void caratula1() {
+void caratula1(){
     system("cls");
+    ocultarCursor();
     lineasHV(0, 0, 119, 28);
     lineasHV(5, 1, 115, 3);
     centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
