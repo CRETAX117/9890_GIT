@@ -9,13 +9,13 @@ LeftChar=1
 [Editor_1]
 CursorCol=2
 CursorRow=305
-TopLine=291
+TopLine=169
 LeftChar=1
 [Editor_2]
 <<<<<<< HEAD
-CursorCol=2
-CursorRow=74
-TopLine=59
+CursorCol=1
+CursorRow=154
+TopLine=125
 =======
 CursorCol=3
 CursorRow=34
@@ -25,7 +25,7 @@ LeftChar=1
 [Editor_3]
 CursorCol=18
 CursorRow=9
-TopLine=30
+TopLine=25
 LeftChar=1
 [Editor_4]
 CursorCol=4
