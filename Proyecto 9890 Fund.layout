@@ -1,8 +1,8 @@
 [Editors]
-Order=0,2,3,4
-Focused=2
+Order=0,3,4
+Focused=0
 [Editor_0]
-CursorCol=24
+CursorCol=11
 CursorRow=7
 TopLine=1
 LeftChar=1
@@ -50,7 +50,7 @@ TopLine=25
 >>>>>>> 7fecdf226dad036b3bc7239b8b1372451c31f6d6
 LeftChar=1
 [Editor_4]
-CursorCol=4
-CursorRow=159
-TopLine=140
+CursorCol=1
+CursorRow=140
+TopLine=105
 LeftChar=1
