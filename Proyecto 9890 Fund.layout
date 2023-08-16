@@ -14,9 +14,9 @@ TopLine=169
 LeftChar=1
 [Editor_2]
 <<<<<<< HEAD
-CursorCol=1
-CursorRow=130
-TopLine=105
+CursorCol=2
+CursorRow=203
+TopLine=174
 =======
 CursorCol=1
 CursorRow=180
@@ -51,6 +51,6 @@ TopLine=25
 LeftChar=1
 [Editor_4]
 CursorCol=1
-CursorRow=140
+CursorRow=139
 TopLine=105
 LeftChar=1
