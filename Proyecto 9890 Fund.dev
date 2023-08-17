@@ -60,16 +60,6 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit3]
-FileName=Portadas.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit1]
 FileName=main.cpp
 CompileCpp=1
@@ -81,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=Funciones.h
+FileName=Menu.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -91,7 +81,17 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=Menu.h
+FileName=Portadas.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit3]
+FileName=Funciones.h
 CompileCpp=1
 Folder=
 Compile=1
