@@ -9,13 +9,14 @@ Se estructurara el menu funcional
 #include "Funciones.h"
 
 void initSelect_Inicio();
-void registroSelect();
+int registroSelect();
 
 void initSelect_Inicio(){
+	RETORNO_RG:
 	CLS(0);
 	inicioSesion();
 	ocultarCursor();
-	int a = 8;
+	int a = 8, action;
 	char in, sec;
 	int x;
 	
@@ -31,7 +32,13 @@ void initSelect_Inicio(){
 			cuadros1(67, 23, 28, 3);
 			RETORNO:
 			break;
-		}		
+		}else if(in==ESCAPE){		//Acciones tecla ESCAPE
+			HWND consoleWnd = GetConsoleWindow(); 		// Obtiene el identificador de la ventana de la consola
+			CLS(0);
+			margenes();
+			exitit();
+            SendMessage(consoleWnd, WM_CLOSE, 0, 0); 	// Cierra la ventana de la consola
+		}	
 	}
 	
 	while(true){
@@ -65,6 +72,14 @@ void initSelect_Inicio(){
 				cuadros2(25, 14, 70, 1);
 				gotoxy(27, 15); cin.getline(usuario, 60, '\n'); 
 				ocultarCursor();
+				
+				setColor(Black, White);		//Cambio de color de fondo
+				cuadros2(25, 14, 70, 1);
+				setColor(White, Black);		//Cambio de color por defecto
+				cuadros2(25, 19, 70, 1);
+				cuadros1(25, 23, 28, 3);
+				cuadros1(67, 23, 28, 3);
+				
 				x=0;
 				goto RETORNO;
 				break;
@@ -76,28 +91,30 @@ void initSelect_Inicio(){
 				cuadros2(25, 19, 70, 1);
 				gotoxy(27, 20); cin.getline(contra, 60, '\n'); 
 				ocultarCursor();
+				
+				cuadros2(25, 14, 70, 1);	
+				setColor(Black, White);		//Cambio de color de fondo
+				cuadros2(25, 19, 70, 1);	
+				setColor(White, Black);		//Cambio de color por defecto
+				cuadros1(25, 23, 28, 3);
+				cuadros1(67, 23, 28, 3);
+				
 				x=1;
 				goto RETORNO;
 				break;
 				
 			}else if(x==2){				//Funcion 2
 				CLS(0);
-				registroSelect();
+				action = registroSelect();
+				if (action == 1){
+				x=2;
+				goto RETORNO_RG;
+				}
 				break;
 				
 			}else if(x==3){				//Funcion 3
 				CLS(0);
-
-				break;
-				
-			}else if(x==4){				//Funcio 4
-				CLS(0);
-
-				break;
-				
-			}else if(x==5){				//Funcion 5
-				CLS(0);
-
+				proximamente();
 				break;
 				
 			}
@@ -146,7 +163,7 @@ void initSelect_Inicio(){
 	}
 } 
 
-void registroSelect(){
+int registroSelect(){
 	Registro_General();
 	
 	char in, sec;
@@ -163,7 +180,9 @@ void registroSelect(){
 			x=0;
 			RETORNO:
 			break;
-		}		
+		}else if(in==ESCAPE){		//Acciones tecla ESCAPE
+				return 1;
+		}	
 	}
 	
 	while(true){
@@ -183,40 +202,23 @@ void registroSelect(){
 				
 		}else if(in==ENTER){		//Acciones tecla ENTER
 			if(x==0){					//Funcion 0
-
+				registro_estudiante();
 				x=0;
 				goto RETORNO;
 				break;
 				
 			}else if(x==1){				//Funcion 1
-
 				x=1;
+				registro_docente();
 				goto RETORNO;
 				break;
 				
 			}else if(x==2){				//Funcion 2
-				CLS(0);
-
-				break;
-				
-			}else if(x==3){				//Funcion 3
-				CLS(0);
-
-				break;
-				
-			}else if(x==4){				//Funcio 4
-				CLS(0);
-
-				break;
-				
-			}else if(x==5){				//Funcion 5
-				CLS(0);
-
-				break;
+				return 1;
 				
 			}
 		}else if(in==ESCAPE){		//Acciones tecla ESCAPE
-				CLS(0);
+				return 1;
 		}
 		
 		

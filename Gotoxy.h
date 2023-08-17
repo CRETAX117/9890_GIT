@@ -135,9 +135,9 @@ void lineasHV(int cs, int fs, int ci, int fi) {
     gotoxy(cs, fi); printf("%c", 200);
 }
 
-void centrarTexto(char* texto, int f) {
+void centrarTexto(char* texto, int y) {
     int longitud = strlen(texto);
-    gotoxy(60 - (longitud / 2), f);
+    gotoxy(60 - (longitud / 2), y);
     printf(texto);
 }
 
@@ -176,7 +176,7 @@ void setColor(int textColor, int bgColor) {
 void exitit(){
 	char salida[] = {"CERRANDO SESION"};
 	centrarTexto(salida, 13);
-	carga(29, 92, 14, 10);
+	carga(29, 92, 14, 13);
 }
 
 void erase(int xi, int yi, int xf, int yf){

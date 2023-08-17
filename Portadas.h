@@ -26,6 +26,17 @@ puts(c);
 setColor(White, Black);
 */
 
+void proximamente(){
+	CLS(1);
+	char xd[MAX_L] = {"===PROXIMAMENTE==="};
+	char a[MAX_L] = {"Pulse ESC para salir"};
+	margenes();
+	centrarTexto(xd, 13);
+	Sleep(1500);
+	centrarTexto(a, 27);
+	noESCAPE();	
+}
+
 void caratula1(){
     system("cls");
     ocultarCursor();
@@ -57,8 +68,6 @@ void caratula1(){
 }
 
 void inicioSesion(){
-	char usuario[MAX_L];
-	char contra[MAX_L];
 	char titulo[MAX_L] = {"UNIVERSIDAD DE LAS FUERZAS ARMADAS"};
 //	CLS(0);
 	margenes();
@@ -102,6 +111,25 @@ void Registro_General(){
 
 }
 
+void registro_estudiante(){
+	CLS(0);
+	char titulo[MAX_L] = {"REGISTRO DEL ESTUDIANTE"};
+	margenes();
+	ocultarCursor();
+	cuadros1(47, 1, 25, 1);
+	centrarTexto(titulo, 2);
+	
+}
+
+void registro_docente(){
+	CLS(0);
+	char titulo[MAX_L] = {"REGISTRO DEL DOCENTE"};
+	margenes();
+	ocultarCursor();
+	cuadros1(47, 1, 25, 1);
+	centrarTexto(titulo, 2);
+	
+}
 
 //-----------Portada de Materia Docente-------------
 void Materia_Docentes() {
