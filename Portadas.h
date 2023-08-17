@@ -33,11 +33,11 @@ void caratula1(){
     lineasHV(5, 1, 115, 3);
     centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
 
-    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    // Cambiar el color del segundo rectÃ¡ngulo y el texto "FUNDAMENTOS DE PROGRAMACION"
     lineasHV(10, 4, 110, 6);
     centrarTexto("FUNDAMENTOS DE PROGRAMACION", 5);
 
-    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    // Cambiar el color del tercer rectÃ¡ngulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
     //system("COLOR F9");
     lineasHV(15, 7, 105, 12);
     centrarTexto("-------------------INTEGRANTES-------------------", 8);
@@ -86,11 +86,11 @@ void Materia_Docentes() {
     lineasHV(5, 1, 115, 3);
     centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
 
-    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    // Cambiar el color del segundo rectÃ¡ngulo y el texto "FUNDAMENTOS DE PROGRAMACION"
     lineasHV(30, 4, 90, 6);
     centrarTexto("MATERIAS - DOCENTE", 5);
 
-    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    // Cambiar el color del tercer rectÃ¡ngulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
     //system("COLOR F9");
     lineasHV(5, 8, 50, 10);
     gotoxy(7, 9); printf("1.- FUNDAMENTOS DE PROGRAMACION", 9);
@@ -113,11 +113,11 @@ void Menu_Docente() {
     lineasHV(5, 1, 115, 3);
     centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
 
-    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    // Cambiar el color del segundo rectÃ¡ngulo y el texto "FUNDAMENTOS DE PROGRAMACION"
     lineasHV(30, 4, 90, 6);
     centrarTexto("MENU - DOCENTE", 5);
 
-    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    // Cambiar el color del tercer rectÃ¡ngulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
     //system("COLOR F9");
     lineasHV(5, 8, 50, 10);
     gotoxy(7, 9); printf("1.- MODIFICAR DOCENTE", 9);
@@ -137,11 +137,11 @@ void Registro_General() {
     lineasHV(5, 1, 115, 3);
     centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
 
-    // Cambiar el color del segundo rect�ngulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
     lineasHV(30, 4, 90, 6);
     centrarTexto("REGISTRO GENERAL ", 5);
 
-    // Cambiar el color del tercer rect�ngulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
     //system("COLOR F9");
     lineasHV(5, 8, 50, 10);
     gotoxy(7, 9); printf("1.- ESTUDIANTES", 9);
@@ -161,11 +161,11 @@ void Menu_Estudiantes() {
     lineasHV(5, 1, 115, 3);
     centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
 
-    // Cambiar el color del segundo rect�ngulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
     lineasHV(30, 4, 90, 6);
     centrarTexto("MENU - ESTUDIANTE", 5);
 
-    // Cambiar el color del tercer rect�ngulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
     //system("COLOR F9");
     lineasHV(5, 8, 50, 10);
     gotoxy(7, 9); printf("1.- MODIFICAR ESTUDIANTE", 9);
@@ -182,11 +182,11 @@ void Materias_Estudiantes() {
     lineasHV(5, 1, 115, 3);
     centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
 
-    // Cambiar el color del segundo rect�ngulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
     lineasHV(30, 4, 90, 6);
     centrarTexto("MATERIAS ALUMNO ", 5);
 
-    // Cambiar el color del tercer rect�ngulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
     //system("COLOR F9");
     lineasHV(5, 8, 50, 10);
     gotoxy(7, 9); printf("1.- FUNDAMENTOS DE PRGRAMACION", 9);
