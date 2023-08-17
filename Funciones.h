@@ -8,6 +8,9 @@ Libreria de Funciones y estructuras
 #include <windows.h>
 #define MAX_L 100
 
+char usuario[MAX_L];
+char contra[MAX_L];
+
 struct fecha_G{
 	char dia[10];	
 	char mes[10];	

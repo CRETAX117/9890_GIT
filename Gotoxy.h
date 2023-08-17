@@ -176,7 +176,7 @@ void setColor(int textColor, int bgColor) {
 void exitit(){
 	char salida[] = {"CERRANDO SESION"};
 	centrarTexto(salida, 13);
-	carga(29, 92, 14, 17);
+	carga(29, 92, 14, 10);
 }
 
 void erase(int xi, int yi, int xf, int yf){

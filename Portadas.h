@@ -48,7 +48,7 @@ void caratula1(){
     espe1(16);
 
     centrarTexto("CARGANDO BASE DE DATOS...", 23);
-    carga(25, 30);
+    carga(4, 116, 25, 30);
     gotoxy(4, 21);
     printf("                                                        ");
     gotoxy(4, 21);
@@ -76,9 +76,34 @@ void inicioSesion(){
 	gotoxy(34, 25); printf("REGISTRARSE");
 	gotoxy(75, 25); printf("INICIAR SESION");
 	
-	getch();
 }
 
+//-----------Portada de Registro General-------------
+void Registro_General(){
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(30, 4, 90, 6);
+    centrarTexto("REGISTRO GENERAL ", 5);
+
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    //system("COLOR F9");
+    lineasHV(5, 8, 50, 10);
+    gotoxy(7, 9); printf("1.- ESTUDIANTES", 9);
+    
+    lineasHV(5, 12, 50, 14);
+    gotoxy(7, 13); printf("2.- DOCENTES", 13);
+    
+    lineasHV(5, 16, 50, 18);
+    gotoxy(7, 17); printf("3.- SALIR", 17);
+
+}
+
+
+//-----------Portada de Materia Docente-------------
 void Materia_Docentes() {
     system("cls");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
@@ -106,6 +131,7 @@ void Materia_Docentes() {
     
 }	
 
+//-----------Portada de Menu Docente-------------
 void Menu_Docente() {
     system("cls");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
@@ -129,31 +155,8 @@ void Menu_Docente() {
     gotoxy(7, 17); printf("3.- MOSTRAR TODOS LOS DATOS DE ALUMNOS", 17);
 
 }
-	
-void Registro_General() {
-    system("cls");
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    lineasHV(0, 0, 119, 28);
-    lineasHV(5, 1, 115, 3);
-    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
 
-    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
-    lineasHV(30, 4, 90, 6);
-    centrarTexto("REGISTRO GENERAL ", 5);
-
-    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
-    //system("COLOR F9");
-    lineasHV(5, 8, 50, 10);
-    gotoxy(7, 9); printf("1.- ESTUDIANTES", 9);
-    
-    lineasHV(5, 12, 50, 14);
-    gotoxy(7, 13); printf("2.- DOCENTES", 13);
-    
-    lineasHV(5, 16, 50, 18);
-    gotoxy(7, 17); printf("3.- SALIR", 17);
-
-}
-
+//-----------Portada de Menu Estudiante-------------
 void Menu_Estudiantes() {
     system("cls");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
@@ -175,6 +178,7 @@ void Menu_Estudiantes() {
     
 }
 
+//-----------Portada de Materias Estudiantes-------------
 void Materias_Estudiantes() {
     system("cls");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
