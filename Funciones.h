@@ -55,4 +55,104 @@ struct estudiante{
 
 
 //Funciones de correo
+void mayus_a_minus(char palabra[], int n) {
+    for (int i = 0; i < n; i++) {
+        if (palabra[i] >= 'A' && palabra[i] <= 'Z') {
+            palabra[i] = palabra[i] - 'A' + 'a';
+        }
+    }
+}
 
+void ingresarApellido(struct Apellidos *apellidos) {
+    printf("Ingrese su Apellido Paterno: ");
+    scanf("%19s", apellidos->apellidopaterno);
+
+    printf("Ingrese su Apellido Materno: ");
+    scanf("%19s", apellidos->apellidomaterno);
+}
+
+void imprimirApellido(struct Apellidos apellido) {
+    printf("Apellido Paterno: %s\n", apellido.apellidopaterno);
+    printf("Apellido Materno: %s\n", apellido.apellidomaterno);
+}
+
+void ingresarNombre(struct Nombres *nombres) {
+    printf("Ingrese su Primer Nombre: ");
+    scanf("%19s", nombres->primernombre);
+
+    printf("Ingrese su Segundo Nombre: ");
+    scanf("%19s", nombres->segundonombre);
+}
+
+void imprimirNombre(struct Nombres nombres) {
+    printf("Primer Nombre: %s\n", nombres.primernombre);
+    printf("Segundo Nombre: %s\n", nombres.segundonombre);
+}
+
+void generarCorreoPersonalizado(char *correoinst, struct Nombres nombres, struct Apellidos apellidos) {
+    strcpy(correoinst, "");
+    strncat(correoinst, nombres.primernombre, 1); // Primera letra del primer nombre
+    strncat(correoinst, nombres.segundonombre, 1); // Primera letra del segundo nombre
+    strcat(correoinst, apellidos.apellidopaterno);
+    strcat(correoinst, "@espe.edu.ec");
+}
+//STRUCT VALIDACION CORREO
+/*struct Apellidos {
+    char apellidopaterno[20];
+    char apellidomaterno[20];
+};
+
+struct Nombres {
+    char primernombre[20];
+    char segundonombre[20];
+};
+
+struct Correo {
+    char correoinst[50];
+    struct Nombres nombres;
+    struct Apellidos apellidos;
+};
+
+struct Secuencia {
+    int numapellidos;
+    struct Apellidos apellidos;
+};
+
+struct Estudiante {
+    struct Correo correo;
+    struct Nombres nombres;
+    struct Apellidos apellidos;
+    struct Secuencia secuencia;
+};*/
+
+//MAIN VALIDACION CORREO
+/*int main() {
+    int cantidadEstudiantes;
+
+    printf("Ingrese la cantidad de estudiantes: ");
+    scanf("%d", &cantidadEstudiantes);
+
+    struct Nombres nombres;
+    struct Apellidos apellidos;
+    struct Secuencia secuencia;
+    struct Correo correo;
+    struct Estudiante estudiante;
+
+    for (int i = 0; i < cantidadEstudiantes; i++) {
+        printf("\nEstudiante %d:\n", i + 1);
+
+        ingresarApellido(&apellidos);
+        ingresarNombre(&nombres);
+
+        generarCorreoPersonalizado(correo.correoinst, nombres, apellidos);
+
+        imprimirApellido(apellidos);
+        imprimirNombre(nombres);
+
+        // Aplicar conversión a minúsculas solo al imprimir el correo
+        mayus_a_minus(correo.correoinst, strlen(correo.correoinst));
+        printf("Correo electronico: %s\n", correo.correoinst);
+    }
+
+    return 0;
+}*/
