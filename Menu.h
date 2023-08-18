@@ -10,8 +10,10 @@ Se estructurara el menu funcional
 
 void initSelect_Inicio();
 int registroSelect();
+int registro_estudent_select();
+int registro_docent_select();
 
-void initSelect_Inicio(){
+void initSelect_Inicio(){	//MENU INICIO SESION
 	RETORNO_RG:
 	CLS(0);
 	inicioSesion();
@@ -163,10 +165,11 @@ void initSelect_Inicio(){
 	}
 } 
 
-int registroSelect(){
+int registroSelect(){	//MENU SELECCION REGISTRO GENERAL
+	RETORNO_RGA:
 	Registro_General();
 	
-	char in, sec;
+	char in, sec, action;
 	int x;
 	
 	while(true){
@@ -202,15 +205,19 @@ int registroSelect(){
 				
 		}else if(in==ENTER){		//Acciones tecla ENTER
 			if(x==0){					//Funcion 0
-				registro_estudiante();
+				action = registro_estudent_select();
 				x=0;
-				goto RETORNO;
+				if (action == 1){
+				goto RETORNO_RGA;
+				}
 				break;
 				
 			}else if(x==1){				//Funcion 1
 				x=1;
-				registro_docente();
-				goto RETORNO;
+//				action = registro_docent_select();
+				if (action == 1){
+				goto RETORNO_RGA;
+				}
 				break;
 				
 			}else if(x==2){				//Funcion 2
@@ -243,6 +250,108 @@ int registroSelect(){
 				setColor(Black, White);		//Cambio de color de fondo		
 			    lineasHV(5, 16, 50, 18);
 				setColor(White, Black);		//Cambio de color por defecto
+				break;
+		}
+	}
+}
+
+int registro_estudent_select(){
+	CLS(1);
+	registro_estudiante();
+	char in, sec;
+	int x;
+	
+	while(true){
+		in = getch();
+		if(in == UP || in == DOWN || in == LEFT || in == RIGHT){
+			setColor(Black, White);		//Cambio de color de fondo
+			cuadros2(35, 7, 70, 1); 	//Cuadro cedula
+			setColor(White, Black);		//Cambio de color por defecto
+			cuadros2(35, 12, 70, 1);	//Cuadro nombres
+			cuadros2(35, 17, 70, 1);	//Cuadro apellidos
+			cuadros2(36, 23, 4, 1);		//Cuadro dia
+			cuadros2(57, 23, 4, 1);		//Cuadro mes
+			cuadros2(76, 23, 4, 1);		//Cuadro anio
+			
+			x=0;
+			break;
+		}else if(in==ESCAPE){		//Acciones tecla ESCAPE
+				return 1;
+		}	
+	}
+	
+	while(true){
+		in=getch();
+		if(in==UP){					//Acciones flecha arriba
+			if((x>=0 && x<3)){
+				x--;
+			}else{
+				x=2;
+			}
+		}else if(in==DOWN){			//Acciones flecha abajo
+			if((x>=0 && x<3)){
+				x++;
+			}else{
+				x=0;
+			}
+				
+		}else if(in==ENTER){		//Acciones tecla ENTER
+			if(x==0){					//Funcion 0
+				x=0;
+				break;
+				
+			}else if(x==1){				//Funcion 1
+				x=1;
+				break;
+				
+			}else if(x==2){				//Funcion 2
+				return 1;
+				
+			}
+		}else if(in==ESCAPE){		//Acciones tecla ESCAPE
+				return 1;
+		}
+		
+		
+		switch(x){
+			case 0:
+				setColor(Black, White);		//Cambio de color de fondo
+				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
+				setColor(White, Black);		//Cambio de coor por defecto
+				cuadros2(35, 12, 70, 1);	//Cuadro nombres
+				cuadros2(35, 17, 70, 1);	//Cuadro apellidos
+				cuadros2(36, 23, 4, 1);		//Cuadro dia
+				cuadros2(57, 23, 4, 1);		//Cuadro mes
+				cuadros2(76, 23, 4, 1);		//Cuadro anio
+				break;
+			case 1:
+				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
+				setColor(Black, White);		//Cambio de color de fondo
+				cuadros2(35, 12, 70, 1);	//Cuadro nombres
+				setColor(White, Black);		//Cambio de coor por defecto
+				cuadros2(35, 17, 70, 1);	//Cuadro apellidos
+				cuadros2(36, 23, 4, 1);		//Cuadro dia
+				cuadros2(57, 23, 4, 1);		//Cuadro mes
+				cuadros2(76, 23, 4, 1);		//Cuadro anio
+				break;
+			case 2:
+				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
+				cuadros2(35, 12, 70, 1);	//Cuadro nombres
+				setColor(Black, White);		//Cambio de color de fondo
+				cuadros2(35, 17, 70, 1);	//Cuadro apellidos
+				setColor(White, Black);		//Cambio de coor por defecto
+				cuadros2(36, 23, 4, 1);		//Cuadro dia
+				cuadros2(57, 23, 4, 1);		//Cuadro mes
+				cuadros2(76, 23, 4, 1);		//Cuadro anio
+				break;
+			case 3:
+				
+				break;
+			case 4:
+				
+				break;
+			case 5:
+				
 				break;
 		}
 	}

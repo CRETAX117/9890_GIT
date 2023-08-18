@@ -38,11 +38,12 @@ void proximamente(){
 }
 
 void caratula1(){
+	char titulo[MAX_L] = {"UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE"};
     system("cls");
     ocultarCursor();
     lineasHV(0, 0, 119, 28);
     lineasHV(5, 1, 115, 3);
-    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+    centrarTexto(titulo, 2);
 
     // Cambiar el color del segundo rectÃ¡ngulo y el texto "FUNDAMENTOS DE PROGRAMACION"
     lineasHV(10, 4, 110, 6);
@@ -111,6 +112,23 @@ void Registro_General(){
 
 }
 
+void register_options(){
+	gotoxy(4,4); printf("Ingrese los siguientes datos:");
+	gotoxy(6,8); printf("CEDULA:");	
+	cuadros2(35, 7, 70, 1); //Cuadro cedula
+	gotoxy(6,13); printf("NOMBRES:");
+	cuadros2(35, 12, 70, 1); //Cuadro nombres
+	gotoxy(6, 18); printf("APELLIDOS:");
+	cuadros2(35, 17, 70, 1);	//Cuadro apellidos
+	gotoxy(6, 22); printf("FECHA DE NACIMIENTO:");
+	gotoxy(38, 22); printf("DD");
+	cuadros2(36, 23, 4, 1);		//Cuadro dia
+	centrarTexto("MM", 22);
+	cuadros2(57, 23, 4, 1);		//Cuadro mes
+	gotoxy(78, 22); printf("YY");
+	cuadros2(76, 23, 4, 1);		//Cuadro anio
+}
+
 void registro_estudiante(){
 	CLS(0);
 	char titulo[MAX_L] = {"REGISTRO DEL ESTUDIANTE"};
@@ -119,6 +137,20 @@ void registro_estudiante(){
 	cuadros1(47, 1, 25, 1);
 	centrarTexto(titulo, 2);
 	
+	gotoxy(4,4); printf("Ingrese los siguientes datos:");
+	gotoxy(6,8); printf("CEDULA:");	
+	cuadros2(35, 7, 70, 1); //Cuadro cedula
+	gotoxy(6,13); printf("NOMBRES:");
+	cuadros2(35, 12, 70, 1); //Cuadro nombres
+	gotoxy(6, 18); printf("APELLIDOS:");
+	cuadros2(35, 17, 70, 1);	//Cuadro apellidos
+	gotoxy(6, 22); printf("FECHA DE NACIMIENTO:");
+	gotoxy(38, 22); printf("DD");
+	cuadros2(36, 23, 4, 1);		//Cuadro dia
+	centrarTexto("MM", 22);
+	cuadros2(57, 23, 4, 1);		//Cuadro mes
+	gotoxy(78, 22); printf("YY");
+	cuadros2(76, 23, 4, 1);		//Cuadro anio
 }
 
 void registro_docente(){
@@ -129,6 +161,20 @@ void registro_docente(){
 	cuadros1(47, 1, 25, 1);
 	centrarTexto(titulo, 2);
 	
+	gotoxy(4,4); printf("Ingrese los siguientes datos:");
+	gotoxy(6,8); printf("CEDULA:");	
+	cuadros2(35, 7, 70, 1); //Cuadro cedula
+	gotoxy(6,13); printf("NOMBRES:");
+	cuadros2(35, 12, 70, 1); //Cuadro nombres
+	gotoxy(6, 18); printf("APELLIDOS:");
+	cuadros2(35, 17, 70, 1);	//Cuadro apellidos
+	gotoxy(6, 22); printf("FECHA DE NACIMIENTO:");
+	gotoxy(38, 22); printf("DD");
+	cuadros2(36, 23, 4, 1);		//Cuadro dia
+	centrarTexto("MM", 22);
+	cuadros2(57, 23, 4, 1);		//Cuadro mes
+	gotoxy(78, 22); printf("YY");
+	cuadros2(76, 23, 4, 1);		//Cuadro anio	
 }
 
 //-----------Portada de Materia Docente-------------
