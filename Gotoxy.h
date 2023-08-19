@@ -14,8 +14,8 @@ using namespace std;
 //Funciones graficas
 
 void CLS(int tim){
-	system("cls");
 	Sleep(tim);
+	system("cls");
 }
 
 void gotoxy(int x,int y){  

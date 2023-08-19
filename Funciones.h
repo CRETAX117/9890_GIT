@@ -6,10 +6,39 @@ Libreria de Funciones y estructuras
 #include <conio.h>
 #include <string.h>
 #include <windows.h>
+#include <fstream>
+#include "Portadas.h"
 #define MAX_L 100
 
 char usuario[MAX_L];
 char contra[MAX_L];
+char cedula[MAX_L];
+
+int numeros(char a[]){
+	int i;
+	int error = 0;
+	while(a[i] != '\0'){
+		if(a[i] < '0' || a[i] > '9'){
+			error = 1;
+			break;
+		}
+		i++;
+	}
+	return error;
+}
+
+int letras(char a[]){
+	int i;
+	int error = 0;
+	while(a[i] != '\0'){
+		if((a[i] < 'A' || a[i] > 'Z') && (a[i] < 'a' || a[i] > 'z') && (a[i] != ' ')){
+			error = 1;
+			break;
+		}
+		i++;
+	}	
+	return error;
+}
 
 struct fecha_G{
 	char dia[10];	
@@ -53,9 +82,84 @@ struct estudiante{
 	struct persona;
 };
 
+void signInUser(){
+	gotoxy(27, 15); cin.getline(usuario, 60, '\n'); fflush(stdin);
+}
+
+void signInPass(){
+	gotoxy(27, 20); cin.getline(contra, 60, '\n'); fflush(stdin);
+}
+
+bool verificar_cedula(int vect[]){
+	int i,r,s=0,s1=0,st=0;
+	for(i=0;i<10;i=i+2){
+		r= vect[i]*2;
+		if(r>9)
+		r-=9;
+		s+=r;
+	}
+
+	for(i=1;i<9;i=i+2){
+		s1+=vect[i];
+	}
+	st=10-((s+s1)%10);
+		if(st==10)
+		st=0;
+		if(vect [9]==st)
+		return true;
+		else
+		return false;
+}
+
+int in_cedula(){
+	char solonum[MAX_L] = {"SOLO NGRESE NUMEROS"};
+	int error;
+	gotoxy(37,8); cin.getline(cedula, 10, '\n'); fflush(stdin); error=numeros(cedula);
+	if(error==1){
+		ocultarCursor();
+		CLS(0);
+		margenes();
+		cuadros1(48, 11, 24, 5);
+		centrarTexto(solonum, 14);
+		CLS(120);
+		return 1;
+	}
+}
+
+
+
+//-----------------------
+//STRUCT VALIDACION CORREO
+/*struct Apellidos {
+    char apellidopaterno[20];
+    char apellidomaterno[20];
+};
+
+struct Nombres {
+    char primernombre[20];
+    char segundonombre[20];
+};
+
+struct Correo {
+    char correoinst[50];
+    struct Nombres nombres;
+    struct Apellidos apellidos;
+};
+
+struct Secuencia {
+    int numapellidos;
+    struct Apellidos apellidos;
+};
+
+struct Estudiante {
+    struct Correo correo;
+    struct Nombres nombres;
+    struct Apellidos apellidos;
+    struct Secuencia secuencia;
+};*/
 
 //Funciones de correo
-void mayus_a_minus(char palabra[], int n) {
+/*void mayus_a_minus(char palabra[], int n) {
     for (int i = 0; i < n; i++) {
         if (palabra[i] >= 'A' && palabra[i] <= 'Z') {
             palabra[i] = palabra[i] - 'A' + 'a';
@@ -95,35 +199,7 @@ void generarCorreoPersonalizado(char *correoinst, struct Nombres nombres, struct
     strncat(correoinst, nombres.segundonombre, 1); // Primera letra del segundo nombre
     strcat(correoinst, apellidos.apellidopaterno);
     strcat(correoinst, "@espe.edu.ec");
-}
-//STRUCT VALIDACION CORREO
-/*struct Apellidos {
-    char apellidopaterno[20];
-    char apellidomaterno[20];
-};
-
-struct Nombres {
-    char primernombre[20];
-    char segundonombre[20];
-};
-
-struct Correo {
-    char correoinst[50];
-    struct Nombres nombres;
-    struct Apellidos apellidos;
-};
-
-struct Secuencia {
-    int numapellidos;
-    struct Apellidos apellidos;
-};
-
-struct Estudiante {
-    struct Correo correo;
-    struct Nombres nombres;
-    struct Apellidos apellidos;
-    struct Secuencia secuencia;
-};*/
+}*/
 
 //MAIN VALIDACION CORREO
 /*int main() {

@@ -9,6 +9,7 @@ presentacion
 #define RIGHT 77
 #define ENTER 13
 #define ESCAPE 27
+#define SPACE 32
 
 /*
 Codigo reutilizable
@@ -112,7 +113,7 @@ void Registro_General(){
 
 }
 
-/*void register_options(){
+void register_options(){
 	gotoxy(4,4); printf("Ingrese los siguientes datos:");
 	gotoxy(6,8); printf("CEDULA:");	
 	cuadros2(35, 7, 70, 1); //Cuadro cedula
@@ -127,7 +128,7 @@ void Registro_General(){
 	cuadros2(57, 23, 4, 1);		//Cuadro mes
 	gotoxy(78, 22); printf("YY");
 	cuadros2(76, 23, 4, 1);		//Cuadro anio
-}*/
+}
 
 void registro_estudiante(){
 	CLS(0);
@@ -137,7 +138,7 @@ void registro_estudiante(){
 	cuadros1(47, 1, 25, 1);
 	centrarTexto(titulo, 2);
 	
-	gotoxy(4,4); printf("Ingrese los siguientes datos:");
+	gotoxy(4,5); printf("Ingrese los siguientes datos:");
 	gotoxy(6,8); printf("CEDULA:");	
 	cuadros2(35, 7, 70, 1); //Cuadro cedula
 	gotoxy(6,13); printf("NOMBRES:");
@@ -161,7 +162,7 @@ void registro_docente(){
 	cuadros1(47, 1, 25, 1);
 	centrarTexto(titulo, 2);
 	
-	gotoxy(4,4); printf("Ingrese los siguientes datos:");
+	gotoxy(4,5); printf("Ingrese los siguientes datos:");
 	gotoxy(6,8); printf("CEDULA:");	
 	cuadros2(35, 7, 70, 1); //Cuadro cedula
 	gotoxy(6,13); printf("NOMBRES:");
