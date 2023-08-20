@@ -12,7 +12,16 @@ Libreria de Funciones y estructuras
 
 char usuario[MAX_L];
 char contra[MAX_L];
-char cedula[MAX_L];
+char cedula[9];
+char name1[MAX_L];
+char name2[MAX_L];
+
+void limpiarCadena(char cadena[MAX_L], int tam){
+	// Llena la cadena con caracteres nulos para borrar su contenido
+    for (int i = 0; i < tam; i++) {
+        cadena[i] = '\0';
+    }
+}
 
 int numeros(char a[]){
 	int i;
@@ -90,6 +99,7 @@ void signInPass(){
 	gotoxy(27, 20); cin.getline(contra, 60, '\n'); fflush(stdin);
 }
 
+
 bool verificar_cedula(int vect[]){
 	int i,r,s=0,s1=0,st=0;
 	for(i=0;i<10;i=i+2){
@@ -98,6 +108,7 @@ bool verificar_cedula(int vect[]){
 		r-=9;
 		s+=r;
 	}
+
 
 	for(i=1;i<9;i=i+2){
 		s1+=vect[i];
@@ -110,22 +121,68 @@ bool verificar_cedula(int vect[]){
 		else
 		return false;
 }
+//Ingreso de la cedula
+void in_cedula(){
+	mostrarCursor();
+	gotoxy(37,8); cin.getline(cedula, 10, '\n'); fflush(stdin); 
+	ocultarCursor();
+}
 
-int in_cedula(){
-	char solonum[MAX_L] = {"SOLO NGRESE NUMEROS"};
-	int error;
-	gotoxy(37,8); cin.getline(cedula, 10, '\n'); fflush(stdin); error=numeros(cedula);
+int cedula_check(){
+	char solonum[MAX_L] = {"SOLO INGRESE NUMEROS"};
+	char verif[MAX_L] = {"CEDULA NO VALIDA"};
+	int error=0, validacion, tam;
+	
+	error=numeros(cedula);
+	tam = strlen(cedula);
 	if(error==1){
+		error=0;
 		ocultarCursor();
 		CLS(0);
 		margenes();
-		cuadros1(48, 11, 24, 5);
+		cuadros1(45, 11, 28, 5);
+		printf("\a");
 		centrarTexto(solonum, 14);
-		CLS(120);
+		CLS(1700);
 		return 1;
+	}
+	int cedint[9]; // Declaración de una matriz de enteros para almacenar los dígitos
+    int contador = 0;
+
+    // Convertir cada dígito de la cadena en un entero y almacenarlo en la matriz
+    for (int i = 0; i < 9; i++) {
+        if (cedula[i] >= '0' && cedula[i] <= '9') {
+            cedint[contador] = cedula[i] - '0'; // Convertir carácter a entero
+            contador++;
+        }
+    }
+ 
+	validacion=verificar_cedula(cedint);
+	if(validacion){
+		validacion=0;
+		ocultarCursor();
+		CLS(0);
+		margenes();
+		cuadros1(46, 11, 26, 5);
+		printf("\a");
+		centrarTexto(verif , 14);
+		CLS(1700);
+		return 2;
+	}else{
+		return 3;
 	}
 }
 
+
+//Ingreso nombres
+void in_names(){
+	char caracter;
+    int indice = 0;
+	mostrarCursor();
+	gotoxy(37, 13); //cin.getline(name1, 15, '\n'); //cin.getline(name2, 15, '\n'); fflush(stdin);
+	scanf("%99s %99[^\n]", name1, name2);
+	ocultarCursor(); 
+}
 
 
 //-----------------------

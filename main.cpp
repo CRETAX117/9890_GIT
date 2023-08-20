@@ -2,7 +2,8 @@
 #include "Menu.h"
 
 int main(int argc, char** argv) {
-//	caratula1();
+	while(true){
 	initSelect_Inicio();
+	}
 	return 0;
 }

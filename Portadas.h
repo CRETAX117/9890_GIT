@@ -114,7 +114,6 @@ void Registro_General(){
 }
 
 void register_options(){
-	gotoxy(4,4); printf("Ingrese los siguientes datos:");
 	gotoxy(6,8); printf("CEDULA:");	
 	cuadros2(35, 7, 70, 1); //Cuadro cedula
 	gotoxy(6,13); printf("NOMBRES:");
@@ -152,6 +151,8 @@ void registro_estudiante(){
 	cuadros2(57, 23, 4, 1);		//Cuadro mes
 	gotoxy(78, 22); printf("YY");
 	cuadros2(76, 23, 4, 1);		//Cuadro anio
+	cuadros1(94, 23, 19, 3);	//Cuadro registro	
+	gotoxy(99, 25); printf("REGISTRARSE");
 }
 
 void registro_docente(){
@@ -175,7 +176,9 @@ void registro_docente(){
 	centrarTexto("MM", 22);
 	cuadros2(57, 23, 4, 1);		//Cuadro mes
 	gotoxy(78, 22); printf("YY");
-	cuadros2(76, 23, 4, 1);		//Cuadro anio	
+	cuadros2(76, 23, 4, 1);		//Cuadro anio
+	cuadros1(94, 23, 19, 3);	//Cuadro registro	
+	gotoxy(99, 25); printf("REGISTRARSE");	
 }
 
 //-----------Portada de Materia Docente-------------

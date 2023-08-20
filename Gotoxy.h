@@ -86,7 +86,6 @@ void cuadros1(int x, int y, int m, int n) {
     }
     printf("%c", 188);
 }
-
 void cuadros2(int x, int y, int m, int n) {
     int i, j;
 
