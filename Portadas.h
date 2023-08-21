@@ -113,20 +113,17 @@ void Registro_General(){
 
 }
 
-void register_options(){
-	gotoxy(6,8); printf("CEDULA:");	
-	cuadros2(35, 7, 70, 1); //Cuadro cedula
-	gotoxy(6,13); printf("NOMBRES:");
-	cuadros2(35, 12, 70, 1); //Cuadro nombres
-	gotoxy(6, 18); printf("APELLIDOS:");
-	cuadros2(35, 17, 70, 1);	//Cuadro apellidos
-	gotoxy(6, 22); printf("FECHA DE NACIMIENTO:");
-	gotoxy(38, 22); printf("DD");
-	cuadros2(36, 23, 4, 1);		//Cuadro dia
-	centrarTexto("MM", 22);
-	cuadros2(57, 23, 4, 1);		//Cuadro mes
-	gotoxy(78, 22); printf("YY");
-	cuadros2(76, 23, 4, 1);		//Cuadro anio
+void register_view(){
+	char titulo[MAX_L] = {"REGISTRO"};
+	
+	margenes();
+	cuadros1(55, 2, 11, 1);
+	centrarTexto(titulo, 3);
+	gotoxy(6, 5); printf("DATOS INGRESADOS");
+	gotoxy(6,8); printf("CEDULA:\t");	
+	gotoxy(6,13); printf("NOMBRES\t:");
+	gotoxy(6, 18); printf("APELLIDOS\t:");
+	gotoxy(6, 22); printf("FECHA DE NACIMIENTO:\t");
 }
 
 void registro_estudiante(){
@@ -138,19 +135,20 @@ void registro_estudiante(){
 	centrarTexto(titulo, 2);
 	
 	gotoxy(4,5); printf("Ingrese los siguientes datos:");
-	gotoxy(6,8); printf("CEDULA:");	
+	gotoxy(6,8); printf("CEDULA (solo numeros):");	
 	cuadros2(35, 7, 70, 1); //Cuadro cedula
-	gotoxy(6,13); printf("NOMBRES:");
+	gotoxy(6,13); printf("NOMBRES COMPLETOS:");
 	cuadros2(35, 12, 70, 1); //Cuadro nombres
-	gotoxy(6, 18); printf("APELLIDOS:");
+	gotoxy(6, 18); printf("APELLIDOS COMPLETOS:");
 	cuadros2(35, 17, 70, 1);	//Cuadro apellidos
 	gotoxy(6, 22); printf("FECHA DE NACIMIENTO:");
+	gotoxy(8, 22); printf("(Solo numeros)");
 	gotoxy(38, 22); printf("DD");
 	cuadros2(36, 23, 4, 1);		//Cuadro dia
 	centrarTexto("MM", 22);
 	cuadros2(57, 23, 4, 1);		//Cuadro mes
 	gotoxy(78, 22); printf("YY");
-	cuadros2(76, 23, 4, 1);		//Cuadro anio
+	cuadros2(75, 23, 6, 1);		//Cuadro anio
 	cuadros1(94, 23, 19, 3);	//Cuadro registro	
 	gotoxy(99, 25); printf("REGISTRARSE");
 }
@@ -162,21 +160,21 @@ void registro_docente(){
 	ocultarCursor();
 	cuadros1(47, 1, 25, 1);
 	centrarTexto(titulo, 2);
-	
 	gotoxy(4,5); printf("Ingrese los siguientes datos:");
-	gotoxy(6,8); printf("CEDULA:");	
+	gotoxy(6,8); printf("CEDULA (solo numeros):");
 	cuadros2(35, 7, 70, 1); //Cuadro cedula
-	gotoxy(6,13); printf("NOMBRES:");
+	gotoxy(6,13); printf("NOMBRES COMPLETOS:");
 	cuadros2(35, 12, 70, 1); //Cuadro nombres
-	gotoxy(6, 18); printf("APELLIDOS:");
+	gotoxy(6, 18); printf("APELLIDOS COMPLETOS:");
 	cuadros2(35, 17, 70, 1);	//Cuadro apellidos
 	gotoxy(6, 22); printf("FECHA DE NACIMIENTO:");
+	gotoxy(8, 22); printf("(Solo numeros)");
 	gotoxy(38, 22); printf("DD");
 	cuadros2(36, 23, 4, 1);		//Cuadro dia
 	centrarTexto("MM", 22);
 	cuadros2(57, 23, 4, 1);		//Cuadro mes
 	gotoxy(78, 22); printf("YY");
-	cuadros2(76, 23, 4, 1);		//Cuadro anio
+	cuadros2(75, 23, 6, 1);		//Cuadro anio
 	cuadros1(94, 23, 19, 3);	//Cuadro registro	
 	gotoxy(99, 25); printf("REGISTRARSE");	
 }

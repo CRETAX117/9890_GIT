@@ -15,6 +15,16 @@ char contra[MAX_L];
 char cedula[9];
 char name1[MAX_L];
 char name2[MAX_L];
+char apellido1[MAX_L];
+char apellido2[MAX_L];
+char day[4];
+char month[4];
+char year[4];
+
+void limpiarBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+}
 
 void limpiarCadena(char cadena[MAX_L], int tam){
 	// Llena la cadena con caracteres nulos para borrar su contenido
@@ -122,10 +132,12 @@ bool verificar_cedula(int vect[]){
 		return false;
 }
 //Ingreso de la cedula
-void in_cedula(){
-	mostrarCursor();
-	gotoxy(37,8); cin.getline(cedula, 10, '\n'); fflush(stdin); 
-	ocultarCursor();
+void in_cedula() {
+    mostrarCursor();
+    gotoxy(37, 8);
+    fgets(cedula, 10, stdin);
+    limpiarBuffer(); // Limpia el búfer después de leer la cédula
+    ocultarCursor();
 }
 
 int cedula_check(){
@@ -174,16 +186,110 @@ int cedula_check(){
 }
 
 
-//Ingreso nombres
-void in_names(){
-	char caracter;
-    int indice = 0;
+void in_names() {
 	mostrarCursor();
-	gotoxy(37, 13); //cin.getline(name1, 15, '\n'); //cin.getline(name2, 15, '\n'); fflush(stdin);
-	scanf("%99s %99[^\n]", name1, name2);
-	ocultarCursor(); 
+    char temp[MAX_L * 2]; // Un solo búfer para ambos nombres
+    
+    gotoxy(37, 13);
+    fgets(temp, sizeof(temp), stdin);
+    
+    // Extraer los nombres del búfer
+    sscanf(temp, "%s %s", name1, name2); // Suponiendo que name1 y name2 son globales
+	ocultarCursor();
 }
 
+void in_lastnames() {
+	mostrarCursor();
+    char temp[MAX_L * 2]; // Un solo búfer para ambos apellidos
+    
+    gotoxy(37, 18);
+    fgets(temp, sizeof(temp), stdin);
+    
+    // Extraer los apellidos del búfer
+    sscanf(temp, "%s %s", apellido1, apellido2); // Suponiendo que apellido1 y apellido2 son globales
+	ocultarCursor();
+}
+
+void in_day(){
+	mostrarCursor();
+    gotoxy(38, 24);
+    scanf("%2s", day);
+    fflush(stdin);
+    ocultarCursor();
+}
+
+int num_check(char *num){
+	char solonum[MAX_L] = {"SOLO INGRESE NUMEROS"};
+	int error=0;
+	
+	error=numeros(num);
+	if(error==1){
+		error=0;
+		ocultarCursor();
+		CLS(0);
+		margenes();
+		cuadros1(45, 11, 28, 5);
+		printf("\a");
+		centrarTexto(solonum, 14);
+		CLS(1700);
+		return 1;
+	}
+}
+
+int word_check(char word[MAX_L], char word2[MAX_L]){
+	char soloword[MAX_L] = {"SOLO INGRESE LETRAS"};
+	int error=0, error2=0;
+	error=letras(word);
+	error2=letras(word2);
+	
+	if(error == 1 || error2 == 1){
+		error=0;
+		ocultarCursor();
+		CLS(0);
+		margenes();
+		cuadros1(45, 11, 28, 5);
+		printf("\a");
+		centrarTexto(soloword, 14);
+		CLS(1700);
+		return 1;
+	}
+}
+
+void in_month(){
+	mostrarCursor();
+    gotoxy(59, 24);
+    scanf("%2s", month);
+    fflush(stdin);
+    ocultarCursor();
+}
+
+void in_year(){
+	mostrarCursor();
+    gotoxy(77, 24);
+    scanf("%4s", year);
+    fflush(stdin);
+    ocultarCursor();
+}
+
+void imprimir_datos(){
+	CLS(0);
+	
+	char titulo[MAX_L] = {"REGISTRO"};
+	
+	margenes();
+	cuadros1(53, 2, 12, 1);
+	centrarTexto(titulo, 3);
+	gotoxy(6, 5); printf("DATOS INGRESADOS");
+	gotoxy(6,7); printf("CEDULA:\t");		cout<<cedula;
+	gotoxy(6,9); printf("NOMBRES:\t");		cout<<name1<<" "<< name2;
+	gotoxy(6, 11); printf("APELLIDOS:\t");	cout<<apellido1<<" "<<apellido2;
+	gotoxy(6, 13); printf("FECHA DE NACIMIENTO:\t");	cout<<day<<"/"<<month<<"/"<<year;	
+
+	cuadros1(24, 20, 8, 1);
+	gotoxy(26, 21);	printf("CERRAR");
+	cuadros1(80, 20, 11, 1);
+	gotoxy(82, 21);	printf("CONFIRMAR");
+}
 
 //-----------------------
 //STRUCT VALIDACION CORREO

@@ -306,7 +306,7 @@ void mostrarCursor(){
 	SetConsoleCursorInfo(hcon, &cci);
 }
 
-void noESCAPE(){
+void escape(){
 	char esc = 27;
 	char aux;
 	while(true){
@@ -317,6 +317,17 @@ void noESCAPE(){
 			margenes();
 			exitit();
             SendMessage(consoleWnd, WM_CLOSE, 0, 0); 	// Cierra la ventana de la consola
+            break; 										// Sale del bucle
+        }
+	}
+}
+
+void noESCAPE(){
+	char esc = 27;
+	char aux;
+	while(true){
+		aux = getch();
+		if (aux == esc){ 								// Verifica si se ha presionado la tecla ESC
             break; 										// Sale del bucle
         }
 	}
