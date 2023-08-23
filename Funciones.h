@@ -10,6 +10,7 @@ Libreria de Funciones y estructuras
 #include "Portadas.h"
 #define MAX_L 100
 
+
 char usuario[MAX_L];
 char contra[MAX_L];
 char contraRegist[MAX_L];
@@ -21,7 +22,7 @@ char apellido2[MAX_L];
 char day[4];
 char month[4];
 char year[4];
-char correo[MAX_L];
+char correoinst[MAX_L];
 
 void limpiarBuffer() {
     int c;
@@ -65,46 +66,58 @@ int letras(char a[]){
 	return error;
 }
 
-struct fecha_G{
-	char dia[10];	
-	char mes[10];	
-	char anio[10];	
+const int MAX_ALUMNOS_POR_MATERIA = 5;
+const int MAX_MATERIAS_POR_ALUMNO = 3;
+
+struct FechaNacimiento {
+    int dia;
+    int mes;
+    int anio;
 };
 
-struct usuario{
-	char nomUser[MAX_L];
-	char password[8];
+struct Persona {
+    string nombre1;
+    string nombre2;
+    string apellido1;
+    string apellido2;
+    string identificacion;
+    FechaNacimiento fechaNacimiento;
 };
 
-struct persona{
-	char nombre[20];
-	char apellido[20];
-	char cedula[10];
-	struct fecha_G fecha;
-	struct usuario user;
+struct Usuario {
+    string correo;
+    string contrasenia;
 };
 
-struct notas{
-	char parcial_1[5];
-	char parcial_2[5];
-	char parcial_3[5];
-	char promedio[5];
+struct Notas {
+    double nota1;
+    double nota2;
+    double nota3;
 };
 
-struct materia{
-	char nrc[5];
-	char materia[20];
-	
+struct Materia {
+    string nombre;
+    string codigo;
+    Persona profesor;
+    string alumnos[MAX_ALUMNOS_POR_MATERIA];
+    Notas notasPorAlumno[MAX_ALUMNOS_POR_MATERIA];
+    int numAlumnos = 0;
 };
 
-struct docente{
-	struct persona data_teacher;
-	struct usuario user_teahcer;
-	struct materia asg_teacher;
+struct Docente {
+    Persona persona;
+    string codigoDocente;
+    Usuario usuario;
+    Materia materia;
 };
-	
-struct estudiante{
-	struct persona;
+
+struct Alumno {
+    Persona persona;
+    string codigoEstudiante;
+    Usuario usuario;
+    string materias[MAX_MATERIAS_POR_ALUMNO];
+    Notas notasPorMateria[MAX_MATERIAS_POR_ALUMNO];
+    int numMaterias = 0;
 };
 
 void signInUser(){
@@ -312,7 +325,7 @@ void limpiar_data(){
 	limpiarCadena(day);
 	limpiarCadena(month);
 	limpiarCadena(year);
-	limpiarCadena(correo);
+	limpiarCadena(correoinst);
 }
 
 void comprobar(){
@@ -330,9 +343,32 @@ void comprobar(){
 	}
 }
 
+void mayus_a_minus(char palabra[], int n) {
+    for (int i = 0; i < n; i++) {
+        if (palabra[i] >= 'A' && palabra[i] <= 'Z') {
+            palabra[i] = palabra[i] + 32; // Diferencia entre mayúsculas y minúsculas
+        }
+    }
+}
+void generarCorreoPersonalizado(char *correo, char *name1 , char *name2, char *lastname) {
+	int n;
+	strcpy(correo, "");
+    strncat(correo, name1, 1); // Primera letra del primer nombre
+    strncat(correo, name2, 1); // Primera letra del segundo nombre
+    strcat(correo, lastname);
+    strcat(correo, "@espe.edu.ec");
+    
+    n = strlen(correo);
+    mayus_a_minus(correo, n);
+}
+
+void imprimirTXT(char *nombe){
+	
+}
 
 void final_registro(char *correo){
 	CLS(0);
+	generarCorreoPersonalizado(correoinst, name1, name2, apellido1);
 	char titulo[MAX_L] = {"REGISTRO"};
 	char mensaje[MAX_L] = {"Su correo institucional es:"};
 	char contrasenia[MAX_L] = {"Create a password (8 espacios)"};
@@ -341,118 +377,13 @@ void final_registro(char *correo){
 	cuadros1(53, 2, 12, 1);
 	centrarTexto(titulo, 3);
 	centrarTexto(mensaje, 5);
-	centrarTexto(correo, 7);
+	centrarTexto(correoinst, 7);
 	centrarTexto(contrasenia, 12);
 	
-	cuadros1(52, 14, 12, 1);
+	cuadros1(32, 14, 55, 1);
 	mostrarCursor();
 	gotoxy(55, 15); scanf("%8[^n]", contraRegist);
-	ocultarCursor();
+	ocultarCursor();	
 }
 
 
-
-//-----------------------
-//STRUCT VALIDACION CORREO
-/*struct Apellidos {
-    char apellidopaterno[20];
-    char apellidomaterno[20];
-};
-
-struct Nombres {
-    char primernombre[20];
-    char segundonombre[20];
-};
-
-struct Correo {
-    char correoinst[50];
-    struct Nombres nombres;
-    struct Apellidos apellidos;
-};
-
-struct Secuencia {
-    int numapellidos;
-    struct Apellidos apellidos;
-};
-
-struct Estudiante {
-    struct Correo correo;
-    struct Nombres nombres;
-    struct Apellidos apellidos;
-    struct Secuencia secuencia;
-};*/
-
-//Funciones de correo
-/*void mayus_a_minus(char palabra[], int n) {
-    for (int i = 0; i < n; i++) {
-        if (palabra[i] >= 'A' && palabra[i] <= 'Z') {
-            palabra[i] = palabra[i] - 'A' + 'a';
-        }
-    }
-}
-
-void ingresarApellido(struct Apellidos *apellidos) {
-    printf("Ingrese su Apellido Paterno: ");
-    scanf("%19s", apellidos->apellidopaterno);
-
-    printf("Ingrese su Apellido Materno: ");
-    scanf("%19s", apellidos->apellidomaterno);
-}
-
-void imprimirApellido(struct Apellidos apellido) {
-    printf("Apellido Paterno: %s\n", apellido.apellidopaterno);
-    printf("Apellido Materno: %s\n", apellido.apellidomaterno);
-}
-
-void ingresarNombre(struct Nombres *nombres) {
-    printf("Ingrese su Primer Nombre: ");
-    scanf("%19s", nombres->primernombre);
-
-    printf("Ingrese su Segundo Nombre: ");
-    scanf("%19s", nombres->segundonombre);
-}
-
-void imprimirNombre(struct Nombres nombres) {
-    printf("Primer Nombre: %s\n", nombres.primernombre);
-    printf("Segundo Nombre: %s\n", nombres.segundonombre);
-}
-
-void generarCorreoPersonalizado(char *correoinst, struct Nombres nombres, struct Apellidos apellidos) {
-    strcpy(correoinst, "");
-    strncat(correoinst, nombres.primernombre, 1); // Primera letra del primer nombre
-    strncat(correoinst, nombres.segundonombre, 1); // Primera letra del segundo nombre
-    strcat(correoinst, apellidos.apellidopaterno);
-    strcat(correoinst, "@espe.edu.ec");
-}*/
-
-//MAIN VALIDACION CORREO
-/*int main() {
-    int cantidadEstudiantes;
-
-    printf("Ingrese la cantidad de estudiantes: ");
-    scanf("%d", &cantidadEstudiantes);
-
-    struct Nombres nombres;
-    struct Apellidos apellidos;
-    struct Secuencia secuencia;
-    struct Correo correo;
-    struct Estudiante estudiante;
-
-    for (int i = 0; i < cantidadEstudiantes; i++) {
-        printf("\nEstudiante %d:\n", i + 1);
-
-        ingresarApellido(&apellidos);
-        ingresarNombre(&nombres);
-
-        generarCorreoPersonalizado(correo.correoinst, nombres, apellidos);
-
-        imprimirApellido(apellidos);
-        imprimirNombre(nombres);
-
-        // Aplicar conversión a minúsculas solo al imprimir el correo
-        mayus_a_minus(correo.correoinst, strlen(correo.correoinst));
-        printf("Correo electronico: %s\n", correo.correoinst);
-    }
-
-    return 0;
-}*/

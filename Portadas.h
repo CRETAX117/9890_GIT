@@ -247,7 +247,7 @@ void Menu_Estudiantes() {
     // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
     //system("COLOR F9");
     lineasHV(5, 8, 50, 10);
-    gotoxy(7, 9); printf("1.- MODIFICAR ESTUDIANTE", 9);
+    gotoxy(7, 9); printf("1.- MOSTRAR ESTUDIANTE", 9);
     
     lineasHV(5, 12, 50, 14);
     gotoxy(7, 13); printf("2.- MATERIAS DEL ESTUDIANTE", 13);

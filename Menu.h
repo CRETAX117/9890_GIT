@@ -206,7 +206,8 @@ void registroSelect(){	//MENU SELECCION REGISTRO GENERAL
 				x=0;
 				if(aux == 1){
 					comprobar();
-					final_registro(correo);
+					final_registro(correoinst);
+					limpiar_data();
 //					GUARDADO DE DATOS
 					break;
 				}else if(aux == 2){
@@ -308,6 +309,7 @@ int confirm_regist(){	//MENU SELECCION REGISTRO GENERAL
 		}else if(in==ENTER || in==SPACE){		//Acciones tecla ENTER
 			if(x==0){					//Funcion 0
 				x=0;
+				
 				return 1;
 			
 			}else if(x==1){				//Funcion 1
