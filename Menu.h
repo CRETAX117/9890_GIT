@@ -205,8 +205,9 @@ void registroSelect(){	//MENU SELECCION REGISTRO GENERAL
 				aux = registro_estudent_select();
 				x=0;
 				if(aux == 1){
-//					save;
-					proximamente();
+					comprobar();
+					final_registro(correo);
+//					GUARDADO DE DATOS
 					break;
 				}else if(aux == 2){
 					CLS(100);
@@ -222,8 +223,8 @@ void registroSelect(){	//MENU SELECCION REGISTRO GENERAL
 				x=1;
 				aux = registro_docent_select();
 				if(aux == 4){
-//					save;
-					proximamente();
+//					VERIFICACION;
+//					GUARDADO DE DATOS
 					break;
 				}else if(aux == 3){
 					CLS(100);
@@ -339,6 +340,7 @@ int confirm_regist(){	//MENU SELECCION REGISTRO GENERAL
 int registro_estudent_select(){
 	int x;
 	RETURN_RGE2:
+	limpiar_data();
 	CLS(1);
 	registro_estudiante();	//CAMBIABLE
 	char in, sec, aux, alert;
@@ -423,6 +425,12 @@ int registro_estudent_select(){
 				setColor(White, Black);
 				cuadros2(35, 12, 70, 1);	//Cuadro nombres
 				in_names();
+				alert = word_check(name1, name2);
+				if(alert == 1){
+					x=0;
+					alert = 0;
+					goto RETURN_RGE2;
+				}else{
 				
 				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
 				cuadros2(35, 12, 70, 1);	//Cuadro nombres
@@ -436,6 +444,7 @@ int registro_estudent_select(){
 				cuadros1(94, 23, 19, 3);	//Cuadro registro
 				
 				x=2;
+				}
 				
 			}else if(x==2){				//Funcion 2
 				erase(37, 18, 70, 18);
@@ -649,9 +658,10 @@ int registro_estudent_select(){
 ////-------------MENU SELECCION REGISTRO DOCENTE-------------
 int registro_docent_select(){
 	RETURN_RGD2:
+	limpiar_data();
 	CLS(1);
 	registro_docente();
-	char in, sec, aux, alert;
+	char in, sec, aux, alert=0;
 	int x;	
 	
 	while(true){
@@ -667,7 +677,7 @@ int registro_docent_select(){
 			cuadros2(75, 23, 6, 1);		//Cuadro anio
 			cuadros1(94, 23, 19, 3);	//Cuadro registro
 			
-			RETORNO_RGE1:
+			RETORNO_RGD1:
 			break;
 			
 		}else if(in==ESCAPE){		//Acciones tecla ESCAPE
@@ -701,29 +711,44 @@ int registro_docent_select(){
 				x++;
 			}
 		}else if(in==ENTER){		//Acciones tecla ENTER Y ESPACIO
-			if(x==0){							//Funcion 0
+			if(x==0){							//Funcion 
 				erase(37, 8, 70, 8);
 				setColor(White, Black);
 				cuadros2(35, 7, 70, 1); //Cuadro cedula
 				in_cedula();
-	
-				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
-				setColor(Black, White);		//Cambio de color de fondo
-				cuadros2(35, 12, 70, 1);	//Cuadro nombres
-				setColor(White, Black);		//Cambio de coor por defecto
-				cuadros2(35, 17, 70, 1);	//Cuadro apellidos
-				cuadros2(36, 23, 4, 1);		//Cuadro dia
-				cuadros2(57, 23, 4, 1);		//Cuadro mes
-				cuadros2(75, 23, 6, 1);		//Cuadro anio
-				cuadros1(94, 23, 19, 3);	//Cuadro registro
+				alert = cedula_check();
+				if(alert == 1){
+					alert = 0;
+					goto RETURN_RGD2;
+				}else if(alert == 2){
+					alert = 0;
+					goto RETURN_RGD2;
+				}else if(alert == 3){
+					cuadros2(35, 7, 70, 1); 	//Cuadro cedula
+					setColor(Black, White);		//Cambio de color de fondo
+					cuadros2(35, 12, 70, 1);	//Cuadro nombres
+					setColor(White, Black);		//Cambio de coor por defecto
+					cuadros2(35, 17, 70, 1);	//Cuadro apellidos
+					cuadros2(36, 23, 4, 1);		//Cuadro dia
+					cuadros2(57, 23, 4, 1);		//Cuadro mes
+					cuadros2(75, 23, 6, 1);		//Cuadro anio
+					cuadros1(94, 23, 19, 3);	//Cuadro registro
 				
-				x=1;
+					x=1;		
+				}
+			
 				
 			}else if(x==1){				//Funcion 1
 				erase(37, 13, 70, 13);
 				setColor(White, Black);
 				cuadros2(35, 12, 70, 1);	//Cuadro nombres
 				in_names();
+				alert = word_check(name1, name2);
+				if(alert == 1){
+					x=0;
+					alert = 0;
+					goto RETURN_RGD2;
+				}else{
 				
 				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
 				cuadros2(35, 12, 70, 1);	//Cuadro nombres
@@ -737,12 +762,19 @@ int registro_docent_select(){
 				cuadros1(94, 23, 19, 3);	//Cuadro registro
 				
 				x=2;
+				}
 				
 			}else if(x==2){				//Funcion 2
 				erase(37, 18, 70, 18);
 				setColor(White, Black);
 				cuadros2(35, 17, 70, 1);	//Cuadro apellidos
 				in_lastnames();
+				alert = word_check(apellido1, apellido2);
+				if(alert == 1){
+					x=0;
+					alert = 0;
+					goto RETURN_RGD2;
+				}else{
 				
 				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
 				cuadros2(35, 12, 70, 1);	//Cuadro nombres
@@ -756,32 +788,47 @@ int registro_docent_select(){
 				cuadros1(94, 23, 19, 3);	//Cuadro registro
 				
 				x=3;
-				goto RETORNO_RGE1;
+				goto RETORNO_RGD1;
 				break;
+				}
 			}else if(x==3){				//Funcion 3
 				erase(38, 24, 40, 24);
 				setColor(White, Black);
 				cuadros2(36, 23, 4, 1);		//Cuadro dia
 				in_day();
+				alert = num_check(day);
+				if(alert == 1){
+					x=0;
+					alert = 0;
+					goto RETURN_RGD2;
+				}else{
+					cuadros2(35, 7, 70, 1); 	//Cuadro cedula
+					cuadros2(35, 12, 70, 1);	//Cuadro nombres
+					cuadros2(35, 17, 70, 1);	//Cuadro apellidos
+					cuadros2(36, 23, 4, 1);		//Cuadro dia
+					setColor(Black, White);		//Cambio de color de fondo
+					cuadros2(57, 23, 4, 1);		//Cuadro mes
+					setColor(White, Black);		//Cambio de coor por defecto
+					cuadros2(75, 23, 6, 1);		//Cuadro anio
+					cuadros1(94, 23, 19, 3);	//Cuadro registro
+
+					x=4;
+					goto RETORNO_RGD1;
+					break;		
+				}
 	
-				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
-				cuadros2(35, 12, 70, 1);	//Cuadro nombres
-				cuadros2(35, 17, 70, 1);	//Cuadro apellidos
-				cuadros2(36, 23, 4, 1);		//Cuadro dia
-				setColor(Black, White);		//Cambio de color de fondo
-				cuadros2(57, 23, 4, 1);		//Cuadro mes
-				setColor(White, Black);		//Cambio de coor por defecto
-				cuadros2(75, 23, 6, 1);		//Cuadro anio
-				cuadros1(94, 23, 19, 3);	//Cuadro registro
-				x=4;
 				
-				goto RETORNO_RGE1;
-				break;
 			}else if(x==4){				//Funcion 4
 				erase(59, 24, 61, 24);
 				setColor(White, Black);
 				cuadros2(57, 23, 4, 1);		//Cuadro mes
 				in_month();
+				alert = num_check(month);
+				if(alert == 1){
+					x=0;
+					alert = 0;
+					goto RETURN_RGD2;
+				}else{
 				
 				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
 				cuadros2(35, 12, 70, 1);	//Cuadro nombres
@@ -795,13 +842,20 @@ int registro_docent_select(){
 				cuadros1(94, 23, 19, 3);	//Cuadro registro
 				
 				x=5;
-				goto RETORNO_RGE1;
+				goto RETORNO_RGD1;
 				break;
+				}
 			}else if(x==5){				//Funcion 5
 				erase(77, 24, 80, 24);
 				setColor(White, Black);
 				cuadros2(75, 23, 6, 1);		//Cuadro anio
 				in_year();
+				alert = num_check(year);
+				if(alert == 1){
+					x=0;
+					alert = 0;
+					goto RETURN_RGD2;
+				}else{
 				
 				cuadros2(35, 7, 70, 1); 	//Cuadro cedula
 				cuadros2(35, 12, 70, 1);	//Cuadro nombres
@@ -815,13 +869,16 @@ int registro_docent_select(){
 				setColor(White, Black);		//Cambio de coor por defecto
 				
 				x=6;
-				goto RETORNO_RGE1;
+				goto RETORNO_RGD1;
 				break;
+				}
+				
 			}else if(x==6){				//Funcion 5
 				break;
 			}
 		}else if(in==ESCAPE){		//Acciones tecla ESCAPE
 				CLS(0);
+				return 3;
 				break;
 		}
 		

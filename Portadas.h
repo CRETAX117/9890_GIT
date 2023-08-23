@@ -142,7 +142,7 @@ void registro_estudiante(){
 	gotoxy(6, 18); printf("APELLIDOS COMPLETOS:");
 	cuadros2(35, 17, 70, 1);	//Cuadro apellidos
 	gotoxy(6, 22); printf("FECHA DE NACIMIENTO:");
-	gotoxy(8, 22); printf("(Solo numeros)");
+	gotoxy(8, 23); printf("(Solo numeros)");
 	gotoxy(38, 22); printf("DD");
 	cuadros2(36, 23, 4, 1);		//Cuadro dia
 	centrarTexto("MM", 22);
@@ -168,7 +168,7 @@ void registro_docente(){
 	gotoxy(6, 18); printf("APELLIDOS COMPLETOS:");
 	cuadros2(35, 17, 70, 1);	//Cuadro apellidos
 	gotoxy(6, 22); printf("FECHA DE NACIMIENTO:");
-	gotoxy(8, 22); printf("(Solo numeros)");
+	gotoxy(8, 23); printf("(Solo numeros)");
 	gotoxy(38, 22); printf("DD");
 	cuadros2(36, 23, 4, 1);		//Cuadro dia
 	centrarTexto("MM", 22);

@@ -12,6 +12,7 @@ Libreria de Funciones y estructuras
 
 char usuario[MAX_L];
 char contra[MAX_L];
+char contraRegist[MAX_L];
 char cedula[9];
 char name1[MAX_L];
 char name2[MAX_L];
@@ -20,17 +21,22 @@ char apellido2[MAX_L];
 char day[4];
 char month[4];
 char year[4];
+char correo[MAX_L];
 
 void limpiarBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {}
 }
 
-void limpiarCadena(char cadena[MAX_L], int tam){
-	// Llena la cadena con caracteres nulos para borrar su contenido
-    for (int i = 0; i < tam; i++) {
-        cadena[i] = '\0';
+void limpiarCadena(char *cadena){
+	memset(cadena, 0, strlen(cadena));
+}
+
+int nullComp(const char *cadena) {
+    if (cadena == NULL || strlen(cadena) == 0) {
+        return 1; // La cadena está vacía
     }
+    return 0; // La cadena no está vacía
 }
 
 int numeros(char a[]){
@@ -135,8 +141,9 @@ bool verificar_cedula(int vect[]){
 void in_cedula() {
     mostrarCursor();
     gotoxy(37, 8);
-    fgets(cedula, 10, stdin);
-    limpiarBuffer(); // Limpia el búfer después de leer la cédula
+    scanf("%[^\n]", cedula); fflush(stdin);
+//    fgets(cedula, 10, stdin);
+//    limpiarBuffer(); // Limpia el búfer después de leer la cédula
     ocultarCursor();
 }
 
@@ -234,6 +241,7 @@ int num_check(char *num){
 		CLS(1700);
 		return 1;
 	}
+	return 0;
 }
 
 int word_check(char word[MAX_L], char word2[MAX_L]){
@@ -253,6 +261,7 @@ int word_check(char word[MAX_L], char word2[MAX_L]){
 		CLS(1700);
 		return 1;
 	}
+	return 0;
 }
 
 void in_month(){
@@ -290,6 +299,58 @@ void imprimir_datos(){
 	cuadros1(80, 20, 11, 1);
 	gotoxy(82, 21);	printf("CONFIRMAR");
 }
+
+void limpiar_data(){
+	limpiarCadena(usuario);
+	limpiarCadena(contra);
+	limpiarCadena(contraRegist);
+	limpiarCadena(cedula);
+	limpiarCadena(name1);
+	limpiarCadena(name2);
+	limpiarCadena(apellido1);
+	limpiarCadena(apellido2);
+	limpiarCadena(day);
+	limpiarCadena(month);
+	limpiarCadena(year);
+	limpiarCadena(correo);
+}
+
+void comprobar(){
+	if(nullComp(cedula) || nullComp(name1) || nullComp(name2) || nullComp(apellido1) || nullComp(apellido2) || nullComp(day) || nullComp(month) || nullComp(year) ){
+		CLS(100);
+		margenes();
+		char salida[MAX_L] = {"PORFAVOR VUELVA A REALIZAR EL PROCESO"};
+		char error[MAX_L] = {"VALORES INCOMPLETOS"};
+		char a[MAX_L] = {"Pulse ESC para salir"};
+		centrarTexto(salida, 16);
+		centrarTexto(error, 14);
+		centrarTexto(a, 27);
+		escape();
+	}else{
+	}
+}
+
+
+void final_registro(char *correo){
+	CLS(0);
+	char titulo[MAX_L] = {"REGISTRO"};
+	char mensaje[MAX_L] = {"Su correo institucional es:"};
+	char contrasenia[MAX_L] = {"Create a password (8 espacios)"};
+	
+	margenes();
+	cuadros1(53, 2, 12, 1);
+	centrarTexto(titulo, 3);
+	centrarTexto(mensaje, 5);
+	centrarTexto(correo, 7);
+	centrarTexto(contrasenia, 12);
+	
+	cuadros1(52, 14, 12, 1);
+	mostrarCursor();
+	gotoxy(55, 15); scanf("%8[^n]", contraRegist);
+	ocultarCursor();
+}
+
+
 
 //-----------------------
 //STRUCT VALIDACION CORREO
