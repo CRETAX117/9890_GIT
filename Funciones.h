@@ -150,7 +150,7 @@ bool verificar_cedula(int vect[]){
 		else
 		return false;
 }
-//Ingreso de la cedula
+//Ingreso de la cedula.
 void in_cedula() {
     mostrarCursor();
     gotoxy(37, 8);
