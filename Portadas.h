@@ -449,3 +449,14 @@ void Estruc_Datos() {
     centrarTexto("Pulse la tecla ESC para regresar", 26);
     
 }
+
+//-----------NUEVA PORTADA DE INICIO DE SESION INCORRECTO-------------
+void Inicio_Incorrecto() {
+    system("cls");
+    lineasHV(0, 0, 119, 28);
+    centrarTexto("INICIO DE SESION INCORRECTO", 14);
+
+    //lineasHV(40, 26, 80, 28);
+    //centrarTexto("Pulse la tecla ESC para regresar", 26);
+    
+}
