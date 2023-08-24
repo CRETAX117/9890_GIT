@@ -387,4 +387,25 @@ void final_registro(char *correo){
 	ocultarCursor();	
 }
 
+//GENERAR NRC
+int generarCodigo() {
+    int longitud = rand() % 2 + 4; // Generar longitud aleatoria entre 4 y 5
+    int codigo;
 
+    if (longitud == 4) {
+        codigo = rand() % 9000 + 1000;
+    } else {
+        codigo = rand() % 90000 + 10000;
+    }
+
+    return codigo;
+}
+
+//GENERAR CODIGO ESTUDIANTE
+int numeroUsuario = 1; // Variable global para el número de usuario
+
+// Función para generar el código de usuario
+void generarCodigo(struct Persona *persona) {
+    sprintf(persona->codigoUsuario, "L%04d", numeroUsuario);
+    numeroUsuario++;
+}
