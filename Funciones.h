@@ -350,6 +350,7 @@ void mayus_a_minus(char palabra[], int n) {
         }
     }
 }
+
 void generarCorreoPersonalizado(char *correo, char *name1 , char *name2, char *lastname) {
 	int n;
 	strcpy(correo, "");
