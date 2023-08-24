@@ -281,3 +281,171 @@ void Materias_Estudiantes() {
 	centrarTexto("Pulse la tecla ESC para regresar",23 );
     
 }
+
+//-----------NUEVA PORTADA MENU ESTUDIANTE-------------
+void Menu_Estudiante() {
+    system("cls");
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(20, 4, 100, 6);
+    centrarTexto("MENU - ESTUDIANTE", 5);
+
+    // Cambiar el color del tercer rectángulo 
+    //system("COLOR F9");
+    lineasHV(30, 7, 90, 9);
+    centrarTexto("MATERIAS ASIGNADAS", 8);
+    
+    lineasHV(5, 11, 60, 13);
+    gotoxy(7, 12); printf("FUNDAMENTOS DE PROGRAMACION", 12);
+    
+    lineasHV(5, 14, 60, 16);
+    gotoxy(7, 15); printf("PROGRAMACION ORIENTADA A OBJETOS", 15);
+    
+    lineasHV(5, 17, 60, 19);
+    gotoxy(7, 18); printf("ESTRUCTURA DE DATOS", 18);
+    
+    //lineasHV(40, 26, 80, 28);
+    centrarTexto("Pulse la tecla ESC para regresar", 26);
+    
+}
+
+//-----------NUEVA PORTADAS PARA LAS MATERIAS-------------
+void Materias() {
+    system("cls");
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(20, 4, 100, 6);
+    centrarTexto("AQUI VAN LAS MATERIAS", 5);
+
+    // Cambiar el color del tercer rectángulo 
+    //system("COLOR F9");
+    lineasHV(5, 8, 30, 10);
+    gotoxy(7, 9); printf("NOTA 1", 9);
+    
+    lineasHV(5, 11, 30, 13);
+    gotoxy(7, 12); printf("NOTA 2", 12);
+    
+    lineasHV(5, 14, 30, 16);
+    gotoxy(7, 15); printf("NOTA 3", 15);
+    
+    lineasHV(5, 17, 30, 19);
+    gotoxy(7, 18); printf("PROMEDIO ", 18);
+    
+    //lineasHV(40, 26, 80, 28);
+    centrarTexto("Pulse la tecla ESC para regresar", 26);
+    
+}
+
+//-----------NUEVA PORTADA DE FUNDAMENTOS DE LA PROGRAMACION-------------
+void Fund_Programacion() {
+    system("cls");
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(20, 4, 100, 6);
+    centrarTexto("MENU - DOCENTE", 5);
+
+    // Cambiar el color del tercer rectángulo 
+    //system("COLOR F9");
+    lineasHV(30, 7, 90, 9);
+    centrarTexto("FUNDAMENTOS DE PROGRAMACION", 8);
+    
+    lineasHV(5, 11, 30, 13);
+    gotoxy(7, 12); printf("ESTUDIANTE 1", 12);
+    
+    lineasHV(5, 14, 30, 16);
+    gotoxy(7, 15); printf("ESTUDIANTE 2", 15);
+    
+    lineasHV(5, 17, 30, 19);
+    gotoxy(7, 18); printf("ESTUDIANTE 3", 18);
+    
+    lineasHV(5, 20, 30, 22);
+    gotoxy(7, 21); printf("ESTUDIANTE 4", 21);
+    
+    lineasHV(5, 23, 30, 25);
+    gotoxy(7, 24); printf("ESTUDIANTE 5", 24);
+    
+    //lineasHV(40, 26, 80, 28);
+    centrarTexto("Pulse la tecla ESC para regresar", 26);
+    
+}
+
+//-----------NUEVA PORTADA DE PROGRAMACION ORIENTADA A OBJETOS-------------
+void Prog_Orientada() {
+    system("cls");
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(20, 4, 100, 6);
+    centrarTexto("MENU - DOCENTE", 5);
+
+    // Cambiar el color del tercer rectángulo 
+    //system("COLOR F9");
+    lineasHV(30, 7, 90, 9);
+    centrarTexto("PROGRAMACION ORIENTADA A OBJETOS", 8);
+    
+    lineasHV(5, 11, 30, 13);
+    gotoxy(7, 12); printf("ESTUDIANTE 1", 12);
+    
+    lineasHV(5, 14, 30, 16);
+    gotoxy(7, 15); printf("ESTUDIANTE 2", 15);
+    
+    lineasHV(5, 17, 30, 19);
+    gotoxy(7, 18); printf("ESTUDIANTE 3", 18);
+    
+    lineasHV(5, 20, 30, 22);
+    gotoxy(7, 21); printf("ESTUDIANTE 4", 21);
+    
+    lineasHV(5, 23, 30, 25);
+    gotoxy(7, 24); printf("ESTUDIANTE 5", 24);
+    
+    //lineasHV(40, 26, 80, 28);
+    centrarTexto("Pulse la tecla ESC para regresar", 26);
+    
+}
+
+//-----------NUEVA PORTADA DE ESTRUCTURA DE DATOS-------------
+void Estruc_Datos() {
+    system("cls");
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(20, 4, 100, 6);
+    centrarTexto("MENU - DOCENTE", 5);
+
+    // Cambiar el color del tercer rectángulo 
+    //system("COLOR F9");
+    lineasHV(30, 7, 90, 9);
+    centrarTexto("ESTRUCTURA DE DATOS", 8);
+    
+    lineasHV(5, 11, 30, 13);
+    gotoxy(7, 12); printf("ESTUDIANTE 1", 12);
+    
+    lineasHV(5, 14, 30, 16);
+    gotoxy(7, 15); printf("ESTUDIANTE 2", 15);
+    
+    lineasHV(5, 17, 30, 19);
+    gotoxy(7, 18); printf("ESTUDIANTE 3", 18);
+    
+    lineasHV(5, 20, 30, 22);
+    gotoxy(7, 21); printf("ESTUDIANTE 4", 21);
+    
+    lineasHV(5, 23, 30, 25);
+    gotoxy(7, 24); printf("ESTUDIANTE 5", 24);
+    
+    //lineasHV(40, 26, 80, 28);
+    centrarTexto("Pulse la tecla ESC para regresar", 26);
+    
+}

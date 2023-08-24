@@ -363,6 +363,36 @@ void generarCorreoPersonalizado(char *correo, char *name1 , char *name2, char *l
     mayus_a_minus(correo, n);
 }
 
+// FUNCION PARA VALIDAR EL CORREO ELECTRONICO: JOSUE CHIRIBOGA
+bool validarCorreo(const char *correo) {
+    int atCount = 0;  // Contador de símbolos '@'
+    int dotCount = 0; // Contador de símbolos '.'
+    int length = strlen(correo); // Obtiene la longitud de la cadena
+    // Recorre cada caracter en la cadena
+    for (int i = 0; i < length; i++) {
+        if (correo[i] == '@') {
+            atCount++; // Incrementa el contador si encuentra '@'
+        } else if (correo[i] == '.') {
+            dotCount++; // Incrementa el contador si encuentra '.'
+        }
+    }
+    // Verifica si hay exactamente un '@' y al menos un '.'
+    return (atCount == 1 && dotCount >= 1);
+}
+
+/*int main() {
+    // ... (código previo)
+    for (int i = 0; i < cantidadEstudiantes; i++) {
+        // ... (código previo)
+        if (validarCorreo(estudiantes[i].correo.correoinst)) {
+            printf("Correo electronico valido: %s\n", estudiantes[i].correo.correoinst);
+        } else {
+            printf("Correo electronico NO valido: %s\n", estudiantes[i].correo.correoinst);
+        }
+    }
+    return 0;
+}*/
+
 void imprimirTXT(char *nombe){
 	
 }
