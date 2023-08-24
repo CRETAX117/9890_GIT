@@ -35,9 +35,9 @@ void limpiarCadena(char *cadena){
 
 int nullComp(const char *cadena) {
     if (cadena == NULL || strlen(cadena) == 0) {
-        return 1; // La cadena está vacía
+        return 1; // La cadena estÃ¡ vacÃ­a
     }
-    return 0; // La cadena no está vacía
+    return 0; // La cadena no estÃ¡ vacÃ­a
 }
 
 int numeros(char a[]){
@@ -156,7 +156,7 @@ void in_cedula() {
     gotoxy(37, 8);
     scanf("%[^\n]", cedula); fflush(stdin);
 //    fgets(cedula, 10, stdin);
-//    limpiarBuffer(); // Limpia el búfer después de leer la cédula
+//    limpiarBuffer(); // Limpia el bÃºfer despuÃ©s de leer la cÃ©dula
     ocultarCursor();
 }
 
@@ -178,13 +178,13 @@ int cedula_check(){
 		CLS(1700);
 		return 1;
 	}
-	int cedint[9]; // Declaración de una matriz de enteros para almacenar los dígitos
+	int cedint[9]; // DeclaraciÃ³n de una matriz de enteros para almacenar los dÃ­gitos
     int contador = 0;
 
-    // Convertir cada dígito de la cadena en un entero y almacenarlo en la matriz
+    // Convertir cada dÃ­gito de la cadena en un entero y almacenarlo en la matriz
     for (int i = 0; i < 9; i++) {
         if (cedula[i] >= '0' && cedula[i] <= '9') {
-            cedint[contador] = cedula[i] - '0'; // Convertir carácter a entero
+            cedint[contador] = cedula[i] - '0'; // Convertir carÃ¡cter a entero
             contador++;
         }
     }
@@ -208,24 +208,24 @@ int cedula_check(){
 
 void in_names() {
 	mostrarCursor();
-    char temp[MAX_L * 2]; // Un solo búfer para ambos nombres
+    char temp[MAX_L * 2]; // Un solo bÃºfer para ambos nombres
     
     gotoxy(37, 13);
     fgets(temp, sizeof(temp), stdin);
     
-    // Extraer los nombres del búfer
+    // Extraer los nombres del bÃºfer
     sscanf(temp, "%s %s", name1, name2); // Suponiendo que name1 y name2 son globales
 	ocultarCursor();
 }
 
 void in_lastnames() {
 	mostrarCursor();
-    char temp[MAX_L * 2]; // Un solo búfer para ambos apellidos
+    char temp[MAX_L * 2]; // Un solo bÃºfer para ambos apellidos
     
     gotoxy(37, 18);
     fgets(temp, sizeof(temp), stdin);
     
-    // Extraer los apellidos del búfer
+    // Extraer los apellidos del bÃºfer
     sscanf(temp, "%s %s", apellido1, apellido2); // Suponiendo que apellido1 y apellido2 son globales
 	ocultarCursor();
 }
@@ -346,7 +346,7 @@ void comprobar(){
 void mayus_a_minus(char palabra[], int n) {
     for (int i = 0; i < n; i++) {
         if (palabra[i] >= 'A' && palabra[i] <= 'Z') {
-            palabra[i] = palabra[i] + 32; // Diferencia entre mayúsculas y minúsculas
+            palabra[i] = palabra[i] + 32; // Diferencia entre mayÃºsculas y minÃºsculas
         }
     }
 }
@@ -402,9 +402,9 @@ int generarCodigo() {
 }
 
 //GENERAR CODIGO ESTUDIANTE
-int numeroUsuario = 1; // Variable global para el n�mero de usuario
+int numeroUsuario = 1; // Variable global para el número de usuario
 
-// Funci�n para generar el c�digo de usuario
+// Función para generar el código de usuario
 void generarCodigo(struct Persona *persona) {
     sprintf(persona->codigoUsuario, "L%04d", numeroUsuario);
     numeroUsuario++;
