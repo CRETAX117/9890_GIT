@@ -1,0 +1,9 @@
+Identificacion: 1708209158
+Nombres: Micaela Sarahi
+Apellidos: Cubero Parra
+Fecha Nacimiento: 26/03/2004
+Codigo: 9500
+Materia Asignada: MATERIA
+Usuario: mscubero@espe.edu.ec
+Contrasenia: 12345678
+                         

@@ -1,0 +1,9 @@
+Identificacion: 1753106366
+Nombres: Brandon Javier
+Apellidos: Cardenas Cisneros
+Fecha Nacimiento: 11/07/2004
+Codigo: 28467
+Materias:  0 0 0,  0 0 0,  0 0 0
+Usuario: bjcardenas@espe.edu.ec
+Contrasenia: 12345678
+                         

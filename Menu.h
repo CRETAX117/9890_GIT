@@ -19,7 +19,7 @@ void initSelect_Inicio(){	//MENU INICIO SESION
 	CLS(0);
 	inicioSesion();
 	ocultarCursor();
-	int a = 8, action;
+	int a = 8, action, aux;
 	char in, sec;
 	int x;
 	
@@ -113,8 +113,22 @@ void initSelect_Inicio(){	//MENU INICIO SESION
 				
 			}else if(x==3){				//Funcion 3
 				CLS(0);
-				proximamente();
-				break;
+				if(verificarCredenciales(usuario, contra)){
+					margenes();
+					char salida[MAX_L] = {"Verificacion completa"};
+					centrarTexto(salida, 14);
+					Sleep(2500);
+					proximamente();
+				}else{
+					CLS(0);
+					margenes();
+					char salida[MAX_L] = {"Fallo al iniciar sesion"};
+					char b[MAX_L] = {"Pulse cualquier tecla para regresar"};
+					centrarTexto(salida, 14);
+					centrarTexto(b, 27);
+					getch();
+					break;
+				}
 				
 			}
 		}else if(in==ESCAPE){		//Acciones tecla ESCAPE
@@ -208,7 +222,7 @@ void registroSelect(){	//MENU SELECCION REGISTRO GENERAL
 				if(aux == 1){
 					comprobar();
 					final_registro_alumno(correoinst);
-//					limpiar_data();
+					limpiar_data();
 //					limpiarAlumno(alumno1);
 					break;
 				}else if(aux == 2){
@@ -227,6 +241,7 @@ void registroSelect(){	//MENU SELECCION REGISTRO GENERAL
 				if(aux == 4){
 					comprobar();
 					final_registro_docente(correoinst);
+					limpiar_data();
 					break;
 				}else if(aux == 3){
 					CLS(100);

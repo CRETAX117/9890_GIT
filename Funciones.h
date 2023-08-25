@@ -595,25 +595,33 @@ void final_registro_docente(char *correo){
 }
 
 bool verificarCredenciales(const std::string& usuario, const std::string& contrasenia) {
+    if (usuario.empty() || contrasenia.empty()) {
+        return false;  // Si alguna de las cadenas de ingreso está vacía
+    }
+
     std::ifstream archivo("credenciales.txt");
+    if (!archivo.is_open()) {
+        std::cout << "No se pudo abrir el archivo de credenciales." << std::endl;
+        return false;
+    }
+
     std::string linea;
-
-    bool usuarioEncontrado = false;
-    bool contraseniaEncontrada = false;
-
     while (getline(archivo, linea)) {
-        if (linea.find("Usuario: " + usuario) != std::string::npos) {
-            usuarioEncontrado = true;
-        } else if (linea.find("Contrasenia: " + contrasenia) != std::string::npos) {
-            contraseniaEncontrada = true;
-        }
+        if (linea.find("Usuario: ") != std::string::npos) {
+            std::string usuarioArchivo = linea.substr(9);  // Saltar "Usuario: "
+            if (getline(archivo, linea) && linea.find("Contrasenia: ") != std::string::npos) {
+                std::string contraseniaArchivo = linea.substr(13);  // Saltar "Contrasenia: "
 
-        if (usuarioEncontrado && contraseniaEncontrada) {
-            return true;
+                if (usuarioArchivo == usuario && contraseniaArchivo == contrasenia) {
+                    archivo.close();
+                    return true;  // Credenciales coinciden
+                }
+            }
         }
     }
 
-    return false;
+    archivo.close();
+    return false;  // Credenciales no coinciden
 }
 
 //GENERAR CODIGO ESTUDIANTE
