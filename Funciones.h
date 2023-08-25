@@ -439,3 +439,102 @@ void generarCodigo(struct Persona *persona) {
     sprintf(persona->codigoUsuario, "L%04d", numeroUsuario);
     numeroUsuario++;
 }
+
+
+//PROMEDIO
+
+void calcularPromedio(int nota1, int nota2, int nota3) {
+    int suma = nota1 + nota2 + nota3;
+    int promedio = suma;
+
+    printf("El promedio es: %d\n", promedio);
+
+    if (suma >= 42) {
+        printf("Aprobado");
+    } else {
+        printf("Reprobado");
+    }
+}
+
+//CUADROS DEL PROMEDIO
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+
+void gotoxy(int, int);
+void titulos();
+void lineasHV(int, int, int, int);
+void centrarTexto(const char*, int);
+void letras();
+
+void gotoxy(int x, int y) {
+    HANDLE hcon;
+    hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+    COORD dwPos;
+    dwPos.X = x;
+    dwPos.Y = y;
+    SetConsoleCursorPosition(hcon, dwPos);
+}
+
+void lineasHV(int cs, int fs, int ci, int fi) {
+    int i;
+    for (i = cs; i <= ci; i++) {
+        gotoxy(i, fs); printf("%c", 205);
+        gotoxy(i, fi); printf("%c", 205);
+    }
+    for (i = fs; i <= fi; i++) {
+        gotoxy(cs, i); printf("%c", 186);
+        gotoxy(ci, i); printf("%c", 186);
+    }
+    gotoxy(cs, fs); printf("%c", 201);
+    gotoxy(ci, fi); printf("%c", 188);
+    gotoxy(ci, fs); printf("%c", 187);
+    gotoxy(cs, fi); printf("%c", 200);
+}
+
+void centrarTexto(const char* texto, int f) {
+    int longitud = strlen(texto);
+    gotoxy(60 - (longitud / 2), f);
+    printf(texto);
+}
+
+void titulos() {
+    system("cls");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    lineasHV(0, 0, 119, 28);
+    lineasHV(5, 1, 115, 3);
+    centrarTexto("UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE", 2);
+
+    // Cambiar el color del segundo rectángulo y el texto "FUNDAMENTOS DE PROGRAMACION"
+    lineasHV(30, 4, 90, 6);
+    centrarTexto("CALIFICACIONES- ESTUDIANTE", 5);
+
+    // Cambiar el color del tercer rectángulo y el texto "ESTUDIANTE: JOSUE CHIRIBOGA"
+    //system("COLOR F9");
+    lineasHV(5, 8, 50, 10);
+    gotoxy(7, 9); printf("1.-NOTA PRIMER PARCIAL", 9);
+    
+    lineasHV(5, 12, 50, 14);
+    gotoxy(7, 13); printf("2.- NOTA SEGUNDO PARCIAL", 13);
+    
+    lineasHV(5, 16, 50, 18);
+    gotoxy(7, 17); printf("3.- NOTA TERCER PARCIAL", 17);	
+	
+    lineasHV(79, 13, 113, 15);
+    gotoxy(82, 14); printf("SU PROMEDIO ES: ", 18);
+    
+    lineasHV(41, 22, 80, 26);
+  
+    
+}
+
+int main(int argc, char** argv) {
+    system("cls");
+    lineasHV(10, 3, 110, 22);
+    titulos();
+    gotoxy(4, 29);
+    system("pause");
+    getch();
+    return 0;
+}
