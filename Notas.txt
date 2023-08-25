@@ -1,0 +1,19 @@
+NombreSegundo Perez
+
+Fundamentos de la programacion
+Nota[1]: 20
+Nota[2]: 18
+Nota[3]: 16
+Promedio: 18
+
+Programacion orientada a objetos
+Nota[1]: 10
+Nota[2]: 0
+Nota[3]: 0
+Promedio: 3.33333
+
+Estructura de datos
+Nota[1]: 0
+Nota[2]: 0
+Nota[3]: 0
+Promedio: 0

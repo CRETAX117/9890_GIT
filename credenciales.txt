@@ -1,6 +1,3 @@
-Usuario: bjcardenas@espe.edu.ec
-Contrasenia: 12345678
-                         
-Usuario: mscubero@espe.edu.ec
-Contrasenia: 12345678
+Usuario: slperez@espe.edu.ec
+Contrasenia: ASDFG
                          

@@ -1,9 +1,9 @@
-Identificacion: 1753106366
-Nombres: Brandon Javier
-Apellidos: Cardenas Cisneros
-Fecha Nacimiento: 11/07/2004
-Codigo: 28467
-Materias:  0 0 0,  0 0 0,  0 0 0
-Usuario: bjcardenas@espe.edu.ec
-Contrasenia: 12345678
+Identificacion: 1803005071
+Nombres: Segundo Luis
+Apellidos: Perez Perez
+Fecha Nacimiento: 19/07/1976
+Codigo: 7464
+
+Usuario: slperez@espe.edu.ec
+Contrasenia: ASDFG
                          
