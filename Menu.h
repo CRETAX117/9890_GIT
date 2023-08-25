@@ -164,6 +164,7 @@ void initSelect_Inicio(){	//MENU INICIO SESION
 //-------------MENU SELECCION REGISTRO GENERAL-------------
 void registroSelect(){	//MENU SELECCION REGISTRO GENERAL
 	CLS(0);
+	int nalumn;
 	RETORNO_RGA:
 	Registro_General();
 	
@@ -206,9 +207,9 @@ void registroSelect(){	//MENU SELECCION REGISTRO GENERAL
 				x=0;
 				if(aux == 1){
 					comprobar();
-					final_registro(correoinst);
-					limpiar_data();
-//					GUARDADO DE DATOS
+					final_registro_alumno(correoinst);
+//					limpiar_data();
+//					limpiarAlumno(alumno1);
 					break;
 				}else if(aux == 2){
 					CLS(100);
@@ -224,8 +225,8 @@ void registroSelect(){	//MENU SELECCION REGISTRO GENERAL
 				x=1;
 				aux = registro_docent_select();
 				if(aux == 4){
-//					VERIFICACION;
-//					GUARDADO DE DATOS
+					comprobar();
+					final_registro_docente(correoinst);
 					break;
 				}else if(aux == 3){
 					CLS(100);

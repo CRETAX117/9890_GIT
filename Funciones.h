@@ -7,13 +7,12 @@ Libreria de Funciones y estructuras
 #include <string.h>
 #include <windows.h>
 #include <fstream>
+#include <vector>
 #include "Portadas.h"
 #define MAX_L 100
 
-
 char usuario[MAX_L];
 char contra[MAX_L];
-char contraRegist[MAX_L];
 char cedula[9];
 char name1[MAX_L];
 char name2[MAX_L];
@@ -22,6 +21,7 @@ char apellido2[MAX_L];
 char day[4];
 char month[4];
 char year[4];
+char contraRegist[MAX_L];
 char correoinst[MAX_L];
 
 void limpiarBuffer() {
@@ -66,59 +66,62 @@ int letras(char a[]){
 	return error;
 }
 
-const int MAX_ALUMNOS_POR_MATERIA = 5;
-const int MAX_MATERIAS_POR_ALUMNO = 3;
+const int MAX_MATERIAS = 3;
+const int MAX_ALUMNOS = 5;
 
-struct FechaNacimiento {
-    int dia;
-    int mes;
-    int anio;
-};
-
-struct Persona {
-    string nombre1;
-    string nombre2;
-    string apellido1;
-    string apellido2;
-    string identificacion;
-    FechaNacimiento fechaNacimiento;
+struct Fecha {
+    std::string dia;
+    std::string mes;
+    std::string anio;
 };
 
 struct Usuario {
-    string correo;
-    string contrasenia;
+    std::string nombreUsuario;
+    std::string contrasenia;
 };
 
-struct Notas {
-    double nota1;
-    double nota2;
-    double nota3;
-};
-
-struct Materia {
-    string nombre;
-    string codigo;
-    Persona profesor;
-    string alumnos[MAX_ALUMNOS_POR_MATERIA];
-    Notas notasPorAlumno[MAX_ALUMNOS_POR_MATERIA];
-    int numAlumnos = 0;
+struct Persona {
+    std::string identificacion;
+    std::string nombre1;
+    std::string nombre2;
+    std::string apellido1;
+    std::string apellido2;
+    Fecha fechaNacimiento;
 };
 
 struct Docente {
     Persona persona;
-    string codigoDocente;
+    int valid;
+    int codigoDocente;
+    std::string materiaAsignada;
     Usuario usuario;
-    Materia materia;
+};
+
+struct Notas {
+    float nota1;
+    float nota2;
+    float nota3;
+};
+
+struct Materia {
+    std::string nombre;
+    Docente docente;
 };
 
 struct Alumno {
     Persona persona;
-    string codigoEstudiante;
+    int valid;
+    int codigoEstudiante;
     Usuario usuario;
-    string materias[MAX_MATERIAS_POR_ALUMNO];
-    Notas notasPorMateria[MAX_MATERIAS_POR_ALUMNO];
-    int numMaterias = 0;
+    std::string materias[MAX_MATERIAS];
+    Notas notasPorMateria[MAX_MATERIAS];
 };
+
+Alumno alumno1;
+Alumno alumno2;
+Alumno alumno3;
+Alumno alumno4;
+Alumno alumno5;
 
 void signInUser(){
 	gotoxy(27, 15); cin.getline(usuario, 60, '\n'); fflush(stdin);
@@ -128,7 +131,7 @@ void signInPass(){
 	gotoxy(27, 20); cin.getline(contra, 60, '\n'); fflush(stdin);
 }
 
-
+//FUNCIONES GENERALES DE INGRESO
 bool verificar_cedula(int vect[]){
 	int i,r,s=0,s1=0,st=0;
 	for(i=0;i<10;i=i+2){
@@ -288,7 +291,7 @@ void in_month(){
 void in_year(){
 	mostrarCursor();
     gotoxy(77, 24);
-    scanf("%4s", year);
+    cin.getline(year, 5, '\n');
     fflush(stdin);
     ocultarCursor();
 }
@@ -328,6 +331,41 @@ void limpiar_data(){
 	limpiarCadena(correoinst);
 }
 
+void limpiarDocentes(std::vector<Docente>& docentes) {
+    for (auto& docente : docentes) {
+        docente.persona.identificacion = "";
+        docente.persona.nombre1 = "";
+        docente.persona.nombre2 = "";
+        docente.persona.apellido1 = "";
+        docente.persona.apellido2 = "";
+        docente.persona.fechaNacimiento = {0, 0, 0};
+        docente.codigoDocente = 0;
+        docente.materiaAsignada = "";
+        docente.usuario.nombreUsuario = "";
+        docente.usuario.contrasenia = "";
+    }
+}
+
+void limpiarAlumno(Alumno& alumno) {
+    alumno.persona.identificacion = "";
+    alumno.persona.nombre1 = "";
+    alumno.persona.nombre2 = "";
+    alumno.persona.apellido1 = "";
+    alumno.persona.apellido2 = "";
+    alumno.persona.fechaNacimiento.dia = "";
+    alumno.persona.fechaNacimiento.mes = "";
+    alumno.persona.fechaNacimiento.anio = "";
+    alumno.codigoEstudiante = 0;
+    for (int i = 0; i < MAX_MATERIAS; ++i) {
+        alumno.materias[i] = "";
+        alumno.notasPorMateria[i].nota1 = 0.0f;
+        alumno.notasPorMateria[i].nota2 = 0.0f;
+        alumno.notasPorMateria[i].nota3 = 0.0f;
+    }
+    alumno.usuario.nombreUsuario = "";
+    alumno.usuario.contrasenia = "";
+}
+
 void comprobar(){
 	if(nullComp(cedula) || nullComp(name1) || nullComp(name2) || nullComp(apellido1) || nullComp(apellido2) || nullComp(day) || nullComp(month) || nullComp(year) ){
 		CLS(100);
@@ -340,6 +378,7 @@ void comprobar(){
 		centrarTexto(a, 27);
 		escape();
 	}else{
+		
 	}
 }
 
@@ -349,6 +388,20 @@ void mayus_a_minus(char palabra[], int n) {
             palabra[i] = palabra[i] + 32; // Diferencia entre mayÃºsculas y minÃºsculas
         }
     }
+}
+
+//GENERAR NRC
+int generarCodigo() {
+    int longitud = rand() % 2 + 4; // Generar longitud aleatoria entre 4 y 5
+    int codigo;
+
+    if (longitud == 4) {
+        codigo = rand() % 9000 + 1000;
+    } else {
+        codigo = rand() % 90000 + 10000;
+    }
+
+    return codigo;
 }
 
 void generarCorreoPersonalizado(char *correo, char *name1 , char *name2, char *lastname) {
@@ -393,11 +446,113 @@ bool validarCorreo(const char *correo) {
     return 0;
 }*/
 
-void imprimirTXT(char *nombe){
+void guardarDocenteEnArchivo(const Docente& docente, std::ofstream& archivo) {
+    archivo << "Identificacion: " << docente.persona.identificacion << std::endl;
+    archivo << "Nombres: " << docente.persona.nombre1 << " " << docente.persona.nombre2 << std::endl;
+    archivo << "Apellidos: " << docente.persona.apellido1 << " " << docente.persona.apellido2 << std::endl;
+    archivo << "Fecha Nacimiento: " << docente.persona.fechaNacimiento.dia << "/"
+            << docente.persona.fechaNacimiento.mes << "/" << docente.persona.fechaNacimiento.anio << std::endl;
+    archivo << "Codigo: " << docente.codigoDocente << std::endl;
+    archivo << "Materia Asignada: " << docente.materiaAsignada << std::endl;
+    archivo << "Usuario: " << docente.usuario.nombreUsuario << std::endl;
+    archivo << "Contrasenia: " << docente.usuario.contrasenia << std::endl;
+    archivo << "                         " << std::endl;
 	
 }
 
-void final_registro(char *correo){
+void guardarAlumnoEnArchivo(const Alumno& alumno, std::ofstream& archivo) {
+	archivo << "Identificacion: " << alumno.persona.identificacion << std::endl;
+    archivo << "Nombres: " << alumno.persona.nombre1 << " " << alumno.persona.nombre2 << std::endl;
+    archivo << "Apellidos: " << alumno.persona.apellido1 << " " << alumno.persona.apellido2 << std::endl;
+    archivo << "Fecha Nacimiento: " << alumno.persona.fechaNacimiento.dia << "/"
+            << alumno.persona.fechaNacimiento.mes << "/" << alumno.persona.fechaNacimiento.anio << std::endl;
+    archivo << "Codigo: " << alumno.codigoEstudiante << std::endl;
+    archivo << "Materias: ";
+    for (int i = 0; i < MAX_MATERIAS; ++i) {
+        archivo << alumno.materias[i] << " " << alumno.notasPorMateria[i].nota1 << " "
+                << alumno.notasPorMateria[i].nota2 << " " << alumno.notasPorMateria[i].nota3;
+        if (i < MAX_MATERIAS - 1) {
+            archivo << ", ";
+        }
+    }
+    archivo << std::endl;
+    archivo << "Usuario: " << alumno.usuario.nombreUsuario << std::endl;
+    archivo << "Contrasenia: " << alumno.usuario.contrasenia << std::endl;
+    archivo << "                         " << std::endl;
+}
+
+void guardar_credenciales_alumno(const Alumno& alumno, std::ofstream& init){
+	init << "Usuario: " << alumno.usuario.nombreUsuario << std::endl;
+    init << "Contrasenia: " << alumno.usuario.contrasenia << std::endl;
+    init << "                         " << std::endl;
+}
+
+void guardar_credenciales_docente(const Docente& docente, std::ofstream& init){
+	init << "Usuario: " << docente.usuario.nombreUsuario << std::endl;
+    init << "Contrasenia: " << docente.usuario.contrasenia << std::endl;
+    init << "                         " << std::endl;
+}
+
+void imprimir_studentTXT(){
+	Alumno alumno_aux = {
+        {cedula, name1, name2, apellido1, apellido2, {day, month, year}},1,
+        generarCodigo(), {correoinst, contraRegist}
+    };
+    
+    ofstream archivo;
+    ofstream init;
+    
+    archivo.open("estudiante.txt", ios::app);
+	init.open("credenciales.txt", ios::app);
+	
+	if (archivo.is_open() && init.is_open()) {
+        guardarAlumnoEnArchivo(alumno_aux, archivo);
+        guardar_credenciales_alumno(alumno_aux, init);
+
+        archivo.close();
+        init.close();
+    } else {
+		CLS(100);
+		margenes();
+		char salida[MAX_L] = {"FALLO AL REGISTRAR"};
+		char a[MAX_L] = {"Pulse ESC para salir"};
+		centrarTexto(salida, 14);
+		centrarTexto(a, 27);
+		escape();
+    }
+}
+
+void imprimir_docentTXT(){
+	Docente docent_aux = {
+        {cedula, name1, name2, apellido1, apellido2, {day, month, year}},
+        2, generarCodigo(), "MATERIA", {correoinst, contraRegist}
+    };
+    
+    ofstream archivo;
+    ofstream init;
+    
+    archivo.open("docente.txt", ios::app);
+	init.open("credenciales.txt", ios::app);
+	
+	if (archivo.is_open() && init.is_open()) {
+        guardarDocenteEnArchivo(docent_aux, archivo);
+        guardar_credenciales_docente(docent_aux, init);
+
+        archivo.close();
+        init.close();
+    } else {
+		CLS(100);
+		margenes();
+		char salida[MAX_L] = {"FALLO AL REGISTRAR"};
+		char a[MAX_L] = {"Pulse ESC para salir"};
+		centrarTexto(salida, 14);
+		centrarTexto(a, 27);
+		escape();
+    }
+}
+
+
+void final_registro_alumno(char *correo){
 	CLS(0);
 	generarCorreoPersonalizado(correoinst, name1, name2, apellido1);
 	char titulo[MAX_L] = {"REGISTRO"};
@@ -413,22 +568,52 @@ void final_registro(char *correo){
 	
 	cuadros1(32, 14, 55, 1);
 	mostrarCursor();
-	gotoxy(55, 15); scanf("%8[^n]", contraRegist);
-	ocultarCursor();	
+	gotoxy(55, 15); scanf("%9s", contraRegist);
+	ocultarCursor();
+	imprimir_studentTXT();	
 }
 
-//GENERAR NRC
-int generarCodigo() {
-    int longitud = rand() % 2 + 4; // Generar longitud aleatoria entre 4 y 5
-    int codigo;
+void final_registro_docente(char *correo){
+	CLS(0);
+	generarCorreoPersonalizado(correoinst, name1, name2, apellido1);
+	char titulo[MAX_L] = {"REGISTRO"};
+	char mensaje[MAX_L] = {"Su correo institucional es:"};
+	char contrasenia[MAX_L] = {"Create a password (8 espacios)"};
+	
+	margenes();
+	cuadros1(53, 2, 12, 1);
+	centrarTexto(titulo, 3);
+	centrarTexto(mensaje, 5);
+	centrarTexto(correoinst, 7);
+	centrarTexto(contrasenia, 12);
+	
+	cuadros1(32, 14, 55, 1);
+	mostrarCursor();
+	gotoxy(55, 15); scanf("%9s", contraRegist);
+	ocultarCursor();
+	imprimir_docentTXT();	
+}
 
-    if (longitud == 4) {
-        codigo = rand() % 9000 + 1000;
-    } else {
-        codigo = rand() % 90000 + 10000;
+bool verificarCredenciales(const std::string& usuario, const std::string& contrasenia) {
+    std::ifstream archivo("credenciales.txt");
+    std::string linea;
+
+    bool usuarioEncontrado = false;
+    bool contraseniaEncontrada = false;
+
+    while (getline(archivo, linea)) {
+        if (linea.find("Usuario: " + usuario) != std::string::npos) {
+            usuarioEncontrado = true;
+        } else if (linea.find("Contrasenia: " + contrasenia) != std::string::npos) {
+            contraseniaEncontrada = true;
+        }
+
+        if (usuarioEncontrado && contraseniaEncontrada) {
+            return true;
+        }
     }
 
-    return codigo;
+    return false;
 }
 
 //GENERAR CODIGO ESTUDIANTE
@@ -452,3 +637,4 @@ void calcularPromedio(int nota1, int nota2, int nota3) {
         printf("Reprobado");
     }
 }
+
